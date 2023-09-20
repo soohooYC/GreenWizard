@@ -8,19 +8,38 @@
     <fragment
         android:id="@+id/listNews"
         android:name="com.example.greenwizard.fragments.list.listNews"
-        android:label="fragment_list_news"
+        android:label="News"
+        app:navGraph="@navigation/news_nav"
+        app:defaultNavHost="true"
         tools:layout="@layout/fragment_list_news" >
         <action
             android:id="@+id/action_listNews_to_addNews"
             app:destination="@id/addNews" />
+        <action
+            android:id="@+id/action_listNews_to_updateNews"
+            app:destination="@id/updateNews" />
     </fragment>
     <fragment
         android:id="@+id/addNews"
         android:name="com.example.greenwizard.fragments.add.addNews"
-        android:label="fragment_add_news"
+        android:label="Add News"
+        app:navGraph="@navigation/news_nav"
+        app:defaultNavHost="true"
         tools:layout="@layout/fragment_add_news" >
         <action
             android:id="@+id/action_addNews_to_listNews"
             app:destination="@id/listNews" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateNews"
+        android:name="com.example.greenwizard.fragments.update.UpdateNews"
+        android:label="Update News"
+        tools:layout="@layout/fragment_update_news" >
+        <action
+            android:id="@+id/action_updateNews_to_listNews"
+            app:destination="@id/listNews" />
+        <argument
+            android:name="currentNews"
+            app:argType="com.example.greenwizard.model.News" />
     </fragment>
 </navigation>

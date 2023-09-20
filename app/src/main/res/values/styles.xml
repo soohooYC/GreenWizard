@@ -5,4 +5,5 @@
         <item name="android:fontFamily">@font/alatsi</item>
         <item name="android:textSize">28sp</item>
     </style>
+
 </resources>

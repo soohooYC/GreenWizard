@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.example.greenwizard.model.News
 
 @Database(entities = [News::class], version=1, exportSchema = false)
 abstract class NewsDatabase: RoomDatabase() {
@@ -25,7 +26,7 @@ abstract class NewsDatabase: RoomDatabase() {
                     NewsDatabase::class.java,
                     "news_database"
                 ).build()
-                INSTANCE= instance
+                INSTANCE = instance
                 return instance
             }
 
