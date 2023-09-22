@@ -58,8 +58,13 @@ class UpdateNews : Fragment() {
 
         // Load and display the existing image if available
         if (!args.currentNews.imagePath.isNullOrEmpty()) {
-            selectedImageUri = Uri.parse(args.currentNews.imagePath)
-            updateImg.setImageURI(selectedImageUri)
+            try {
+                selectedImageUri = Uri.parse(args.currentNews.imagePath)
+                updateImg.setImageURI(selectedImageUri)
+            } catch (e: Exception) {
+                // Handle any exceptions related to accessing the URI
+                e.printStackTrace()
+            }
         }
 
         // Register for result when an image is picked

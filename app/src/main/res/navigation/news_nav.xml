@@ -121,4 +121,9 @@
             android:name="currentNews"
             app:argType="com.example.greenwizard.model.News" />
     </fragment>
+    <fragment
+        android:id="@+id/addFeedback"
+        android:name="com.example.greenwizard.addFeedback"
+        android:label="fragment_add_feedback"
+        tools:layout="@layout/fragment_add_feedback" />
 </navigation>
