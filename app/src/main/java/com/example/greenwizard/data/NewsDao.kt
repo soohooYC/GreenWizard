@@ -22,7 +22,7 @@ interface NewsDao {
     @Delete
     suspend fun deleteNews(news: News)
 
-    @Query(value = "Select * FROM news_table ORDER BY id ASC")
+    @Query(value = "Select * FROM news_table ORDER BY date DESC")
     fun readAllData(): LiveData<List<News>>
 
 }
