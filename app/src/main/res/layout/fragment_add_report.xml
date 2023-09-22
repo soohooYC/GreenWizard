@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.add.addReport">
+
+    <TextView
+        android:id="@+id/reportView"
+        style="@style/newsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADD ILLEGAL DUMP REPORT"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/typeofWasteView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.025" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="318dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="12dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintBottom_toTopOf="@+id/ImgBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="12dp"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ImgBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Add Image"
+        app:layout_constraintBottom_toTopOf="@+id/addBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edittypeofWaste"
+        android:layout_width="319dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="Enter the type of waste"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/typeofWasteView"
+        style="@style/newsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:paddingBottom="5dp"
+        android:text="Type Of Waste"
+        app:layout_constraintBottom_toTopOf="@+id/edittypeofWaste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editdescription"
+        android:layout_width="319dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="Enter the description"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/typeofWasteView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/AddressView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/reportView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/descView"
+        style="@style/newsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/alatsi"
+        android:text="Description"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/editdescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:hint="Enter the Address"
+        android:inputType="text"
+        app:layout_constraintBottom_toTopOf="@+id/descView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
