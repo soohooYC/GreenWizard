@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background color (you can change the color here) -->
+    <item android:drawable="@android:color/white" />
+    <!-- Border (you can change the border color and thickness here) -->
+    <item>
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="2dp"
+                android:color="@android:color/darker_gray"
+            />
+        </shape>
+    </item>
+</layer-list>
