@@ -59,7 +59,6 @@ class UpdateReport : Fragment() {
         updateaddress.setText(args.currentReport.address)
         updatedescription.setText(args.currentReport.description)
         updatetypeofWaste.setText(args.currentReport.typeofWaste)
-        val Rstatus = args.currentReport.status
 
         // Load and display the existing image if available
         if (!args.currentReport.imagePath.isNullOrEmpty()) {
@@ -119,7 +118,8 @@ class UpdateReport : Fragment() {
                 // Do nothing or dismiss the dialog
             }
             builder.setTitle("Delete ${args.currentReport.description}?")
-            builder.setMessage("Are you sure you want to delete ${args.currentReport.description}?")
+            builder.setMessage("Are you sure you want to delete ${args.currentReport.description} in " +
+                    "${args.currentReport.status}?")
             builder.create().show()
         }
 
@@ -132,25 +132,25 @@ class UpdateReport : Fragment() {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
 
-                if(Rstatus == "New") {
+                if(args.currentReport.status.equals("New")){
 
                     var Rstatus = "Approved"
-                                        // Create news Object
-                    val updatedNews = Report(
+                    // Create Report Object
+                    val updatedReport = Report(
                         args.currentReport.id,
                         location,
-                    description,
+                        description,
                         typeofWaste,
                         System.currentTimeMillis(),
                         Rstatus,
                         imagePath ?: ""
                     )
                     // Update data to ViewModel
-                    reportViewModel.updateReport(updatedNews)
+                    reportViewModel.updateReport(updatedReport)
                     Toast.makeText(requireContext(), "Successfully update status to approved", Toast.LENGTH_LONG)
                         .show()
                 }
-                else if(Rstatus == "Approved"){
+                else if(args.currentReport.status.equals("Approved")){
 
                     var Rstatus = "Completed"
                     val updatedNews = Report(
@@ -167,6 +167,7 @@ class UpdateReport : Fragment() {
                     Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
                         .show()
                 } // Navigate Back
+
                 findNavController().navigate(R.id.action_updateReport_to_listReport)
             } else {
                 Toast.makeText(requireContext(), "Please Fill Out All Fields", Toast.LENGTH_LONG).show()
