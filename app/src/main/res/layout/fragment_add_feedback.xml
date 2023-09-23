@@ -4,12 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".addFeedback">
+    tools:context=".fragments.add.addFeedback">
 
     <RatingBar
         android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:progressBackgroundTint="@color/black"
+        android:progressTint="#E8D31D"
+        android:stepSize="1"
+        android:rating="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,7 +21,7 @@
         app:layout_constraintVertical_bias="0.33" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/ratingView"
         style="tit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -28,13 +32,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />
 
+    <EditText
+        android:id="@+id/editComment"
+        android:layout_width="319dp"
+        android:layout_height="133dp"
+        android:layout_marginTop="48dp"
+        android:background="@drawable/edittext_border"
+        android:ems="10"
+        android:hint="Pls write your comment here...."
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingView" />
+
     <Button
-        android:id="@+id/button"
+        android:id="@+id/feedbackbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="132dp"
         android:text="Send"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/editComment" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

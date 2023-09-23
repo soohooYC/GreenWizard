@@ -24,9 +24,6 @@ class addNews : Fragment() {
     // Initialize ViewModel
     private val newsViewModel: NewsViewModel by viewModels()
 
-    // Initialize ImageView for displaying the selected image
-    private lateinit var imageView: ImageView
-
     // Initialize URI to store the selected image URI
     private var selectedImageUri: Uri? = null
     override fun onCreateView(

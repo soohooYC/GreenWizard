@@ -52,9 +52,6 @@
         <action
             android:id="@+id/action_locationSelectionFragment_to_listRecycle"
             app:destination="@id/listRecycle" />
-        <action
-            android:id="@+id/action_locationSelectionFragment_to_updateNews"
-            app:destination="@id/updateNews" />
     </fragment>
     <fragment
         android:id="@+id/listRecycle"
@@ -126,7 +123,20 @@
     </fragment>
     <fragment
         android:id="@+id/addFeedback"
-        android:name="com.example.greenwizard.addFeedback"
-        android:label="fragment_add_feedback"
-        tools:layout="@layout/fragment_add_feedback" />
+        android:name="com.example.greenwizard.fragments.add.addFeedback"
+        android:label="Feedback"
+        tools:layout="@layout/fragment_add_feedback" >
+        <action
+            android:id="@+id/action_addFeedback_to_listFeedback"
+            app:destination="@id/listFeedback" />
+    </fragment>
+    <fragment
+        android:id="@+id/listFeedback"
+        android:name="com.example.greenwizard.fragments.list.listFeedback"
+        android:label="Overall Rating"
+        tools:layout="@layout/fragment_list_feedback" >
+        <action
+            android:id="@+id/action_listFeedback_to_addFeedback"
+            app:destination="@id/addFeedback" />
+    </fragment>
 </navigation>

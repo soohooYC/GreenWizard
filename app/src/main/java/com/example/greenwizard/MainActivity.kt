@@ -13,6 +13,8 @@ import androidx.core.content.ContextCompat
 import android.Manifest
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.view.Menu
+import android.view.MenuItem
 
 class MainActivity : AppCompatActivity() {
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
@@ -39,12 +41,12 @@ class MainActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.home -> {
-                    // Navigate to the Home fragment
+                    // Navigate to the location Select
                     navController.navigate(R.id.locationSelectionFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.news -> {
-                    // Navigate to the News fragment
+                    // Navigate to the list News
                     navController.navigate(R.id.listNews)
                     return@setOnNavigationItemSelectedListener true
                 }
@@ -67,6 +69,24 @@ class MainActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.feedback, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val navController = findNavController(R.id.myNavHostFragment)
+        when (item.itemId) {
+            R.id.Feedback -> {
+                // Navigate to the Add Feedback fragment
+                navController.navigate(R.id.addFeedback)
+                return true
+            }
+            // Add more cases for other menu items if needed
+            else -> return super.onOptionsItemSelected(item)
+        }
+    }
+
     private fun requestPermission() {
         isReadPermissionGranted = ContextCompat.checkSelfPermission(
             this,
@@ -87,4 +107,3 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
-
