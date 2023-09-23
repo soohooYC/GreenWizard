@@ -12,26 +12,45 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.core.content.ContextCompat
 import android.Manifest
 import androidx.activity.result.contract.ActivityResultContracts
-
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var permissionLauncher: ActivityResultLauncher <Array<String>>
+    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
     private var isReadPermissionGranted = false
-    private var isWritePermissionGranted  = false
+    private var isWritePermissionGranted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         val navController = this.findNavController(R.id.myNavHostFragment)
-        NavigationUI.setupActionBarWithNavController(this,navController)
+        NavigationUI.setupActionBarWithNavController(this, navController)
 
-        permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-            isReadPermissionGranted = permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: isReadPermissionGranted
-            isWritePermissionGranted = permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: isWritePermissionGranted
-        }
+        permissionLauncher =
+            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
+                isReadPermissionGranted =
+                    permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: isReadPermissionGranted
+                isWritePermissionGranted =
+                    permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: isWritePermissionGranted
+            }
         requestPermission()
+
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.home -> {
+                    // Navigate to the Home fragment
+                    navController.navigate(R.id.locationSelectionFragment)
+                    return@setOnNavigationItemSelectedListener true
+                }
+                R.id.news -> {
+                    // Navigate to the News fragment
+                    navController.navigate(R.id.listNews)
+                    return@setOnNavigationItemSelectedListener true
+                }
+            }
+            false
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -48,15 +67,15 @@ class MainActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
-    private fun requestPermission(){
+    private fun requestPermission() {
         isReadPermissionGranted = ContextCompat.checkSelfPermission(
             this,
             Manifest.permission.READ_EXTERNAL_STORAGE
-        )== PackageManager.PERMISSION_GRANTED
+        ) == PackageManager.PERMISSION_GRANTED
 
-        val permissionRequest : MutableList<String> = ArrayList()
+        val permissionRequest: MutableList<String> = ArrayList()
 
-        if(!isReadPermissionGranted){
+        if (!isReadPermissionGranted) {
             permissionRequest.add(Manifest.permission.READ_EXTERNAL_STORAGE)
         }
         if (!isWritePermissionGranted) {
@@ -67,5 +86,5 @@ class MainActivity : AppCompatActivity() {
             permissionLauncher.launch(permissionRequest.toTypedArray())
         }
     }
-
 }
+

@@ -45,13 +45,16 @@
     <fragment
         android:id="@+id/locationSelectionFragment"
         android:name="com.example.greenwizard.LocationSelectionFragment"
-        android:label="LocationSelectionFragment" >
+        android:label="Greenwizard" >
         <action
             android:id="@+id/action_locationSelectionFragment_to_listReport"
             app:destination="@id/listReport" />
         <action
             android:id="@+id/action_locationSelectionFragment_to_listRecycle"
             app:destination="@id/listRecycle" />
+        <action
+            android:id="@+id/action_locationSelectionFragment_to_updateNews"
+            app:destination="@id/updateNews" />
     </fragment>
     <fragment
         android:id="@+id/listRecycle"
