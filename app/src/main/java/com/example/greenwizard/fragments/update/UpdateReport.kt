@@ -24,11 +24,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class UpdateReport : Fragment() {
 
-    private lateinit var mNewsViewModel: LocationViewModel
+    private lateinit var mReportViewModel: LocationViewModel
 
     private val args by navArgs<UpdateReportArgs>()
     // Initialize ViewModel
-    private val newsViewModel: LocationViewModel by viewModels()
+    private val reportViewModel: LocationViewModel by viewModels()
 
     // Initialize ImageView for displaying the selected image
     private lateinit var updateImg: ImageView
@@ -45,7 +45,7 @@ class UpdateReport : Fragment() {
         val view = inflater.inflate(R.layout.fragment_update_report, container, false)
 
         // Initialize mNewsViewModel
-        mNewsViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
+        mReportViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
         val updateaddress = view.findViewById<EditText>(R.id.editTextAddress)
         val updatedescription = view.findViewById<EditText>(R.id.editdescription)
@@ -87,15 +87,14 @@ class UpdateReport : Fragment() {
             val location = updateaddress.text.toString()
             val description = updatedescription.text.toString()
             val typeofWaste = updatetypeofWaste.text.toString()
-            var status = "New"
 
             if (inputCheck(description, typeofWaste)) {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
                 // Create news Object
-                val updatedNews = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(), status,imagePath ?: "")
+                val updatedNews = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),imagePath ?: "")
                 // Update data to ViewModel
-                newsViewModel.updateReport(updatedNews)
+                reportViewModel.updateReport(updatedNews)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()
                 // Navigate Back
                 findNavController().navigate(R.id.action_updateReport_to_listReport)
@@ -108,7 +107,7 @@ class UpdateReport : Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setPositiveButton("Yes") { _, _ ->
                 // Use your ViewModel to delete the news using the existing args
-                mNewsViewModel.deleteReport(args.currentReport)
+                mReportViewModel.deleteReport(args.currentReport)
                 Toast.makeText(
                     requireContext(),
                     "Successfully Removed: ${args.currentReport.description}",
@@ -123,59 +122,56 @@ class UpdateReport : Fragment() {
             builder.setMessage("Are you sure you want to delete ${args.currentReport.description}?")
             builder.create().show()
         }
-//
-//        updateStatusBtn.setOnClickListener {
-//            val location = updateaddress.text.toString()
-//            val description = updatedescription.text.toString()
-//            val typeofWaste = updatetypeofWaste.text.toString()
-//
-//            if (inputCheck(description, typeofWaste)) {
-//                // Check if an image is selected
-//                val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
 
-//                if(Rstatus == "New") {
-//
-//                    var status = "Approved"
-//
-//                    // Create news Object
-//                    val updatedNews = Report(
-//                        args.currentReport.id,
-//                        location,
-//                        description,
-//                        typeofWaste,
-//                        System.currentTimeMillis(),
-//                        status,
-//                        imagePath ?: ""
-//                    )
-//                    // Update data to ViewModel
-//                    newsViewModel.updateReport(updatedNews)
-//                    Toast.makeText(requireContext(), "Successfully update status to approved", Toast.LENGTH_LONG)
-//                        .show()
-//                }
-//                else if(Rstatus == "Approved"){
-//
-//                    var status = "Completed"
-//                    val updatedNews = Report(
-//                        args.currentReport.id,
-//                        location,
-//                        description,
-//                        typeofWaste,
-//                        System.currentTimeMillis(),
-//                        status,
-//                        imagePath ?: ""
-//                    )
-//                    // Update data to ViewModel
-//                    newsViewModel.updateReport(updatedNews)
-//                    Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
-//                        .show()
-//                }
-//
-//                // Navigate Back
-//                findNavController().navigate(R.id.action_updateReport_to_listReport)
-//            } else {
-//                Toast.makeText(requireContext(), "Please Fill Out All Fields", Toast.LENGTH_LONG).show()
-//            }
-//        }
+        updateStatusBtn.setOnClickListener {
+            val location = updateaddress.text.toString()
+            val description = updatedescription.text.toString()
+            val typeofWaste = updatetypeofWaste.text.toString()
+
+            if (inputCheck(description, typeofWaste)) {
+                // Check if an image is selected
+                val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
+
+                if(Rstatus == "New") {
+
+                    var Rstatus = "Approved"
+                                        // Create news Object
+                    val updatedNews = Report(
+                        args.currentReport.id,
+                        location,
+                    description,
+                        typeofWaste,
+                        System.currentTimeMillis(),
+                        Rstatus,
+                        imagePath ?: ""
+                    )
+                    // Update data to ViewModel
+                    reportViewModel.updateReport(updatedNews)
+                    Toast.makeText(requireContext(), "Successfully update status to approved", Toast.LENGTH_LONG)
+                        .show()
+                }
+                else if(Rstatus == "Approved"){
+
+                    var Rstatus = "Completed"
+                    val updatedNews = Report(
+                        args.currentReport.id,
+                        location,
+                        description,
+                        typeofWaste,
+                        System.currentTimeMillis(),
+                        Rstatus,
+                        imagePath ?: ""
+                    )
+                    // Update data to ViewModel
+                    reportViewModel.updateReport(updatedNews)
+                    Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
+                        .show()
+                } // Navigate Back
+                findNavController().navigate(R.id.action_updateReport_to_listReport)
+            } else {
+                Toast.makeText(requireContext(), "Please Fill Out All Fields", Toast.LENGTH_LONG).show()
+            }
+        }
 
         return view
     }

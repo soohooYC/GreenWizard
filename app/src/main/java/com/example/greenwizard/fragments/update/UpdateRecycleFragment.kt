@@ -24,11 +24,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class UpdateRecycleFragment : Fragment() {
 
-    private lateinit var mNewsViewModel: LocationViewModel
+    private lateinit var mRecycleViewModel: LocationViewModel
 
     private val args by navArgs<UpdateRecycleFragmentArgs>()
     // Initialize ViewModel
-    private val newsViewModel: LocationViewModel by viewModels()
+    private val recycleViewModel: LocationViewModel by viewModels()
 
     // Initialize ImageView for displaying the selected image
     private lateinit var updateImg: ImageView
@@ -44,7 +44,7 @@ class UpdateRecycleFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_update_recycle, container, false)
 
         // Initialize mNewsViewModel
-        mNewsViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
+        mRecycleViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
         val updateaddress = view.findViewById<EditText>(R.id.editTextAddress)
         val updatename = view.findViewById<EditText>(R.id.editname)
@@ -88,7 +88,7 @@ class UpdateRecycleFragment : Fragment() {
                 // Create news Object
                 val updatedNews = RecyclePoint(args.currentRecycle.id, location, description, imagePath ?: "")
                 // Update data to ViewModel
-                newsViewModel.updateRecycle(updatedNews)
+                recycleViewModel.updateRecycle(updatedNews)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()
                 // Navigate Back
                 findNavController().navigate(R.id.action_updateRecycleFragment_to_listRecycle)
@@ -101,7 +101,7 @@ class UpdateRecycleFragment : Fragment() {
             val builder = AlertDialog.Builder(requireContext())
             builder.setPositiveButton("Yes") { _, _ ->
                 // Use your ViewModel to delete the news using the existing args
-                mNewsViewModel.deleteRecycle(args.currentRecycle)
+                mRecycleViewModel.deleteRecycle(args.currentRecycle)
                 Toast.makeText(
                     requireContext(),
                     "Successfully Removed: ${args.currentRecycle.name}",

@@ -20,6 +20,9 @@ data class Report (
     // Secondary constructor without 'id' parameter
     constructor(address: String, description: String, typeofWaste: String, status: String, imagePath: String) :
             this(null, address, description, typeofWaste, System.currentTimeMillis(), status,imagePath)
+    constructor(address: String, description: String, typeofWaste: String, imagePath: String) :
+            this(null, address, description, typeofWaste, System.currentTimeMillis(),imagePath)
+
 }
 
 
