@@ -17,13 +17,15 @@ class LocationSelectionFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_location_selection, container, false)
 
         val rbutton = view.findViewById<Button>(R.id.Report)
-
+        val rabutton = view.findViewById<Button>(R.id.reportadmin)
         val rpbutton = view.findViewById<Button>(R.id.Recycle_Point)
 
         rbutton.setOnClickListener {
             view.findNavController().navigate(R.id.action_locationSelectionFragment_to_listReport)
         }
-
+        rabutton.setOnClickListener {
+            view.findNavController().navigate(R.id.action_locationSelectionFragment_to_list_report_newFragment)
+        }
         rpbutton.setOnClickListener{
             view.findNavController().navigate(R.id.action_locationSelectionFragment_to_listRecycle)
         }

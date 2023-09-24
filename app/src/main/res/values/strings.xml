@@ -6,4 +6,34 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="choose">Choose 1 of the module to proceed</string>
+    <string name="reportadmin">Report for admin</string>
+    <string name="report">Report</string>
+    <string name="recycle_Point">Recycle Point</string>
+<!--    Recycle point-->
+    <string name="addrecyclepoint">ADD RECYCLE POINT</string>
+    <string name="updaterecycle">UPDATE RECYCLE POINT</string>
+    <string name="addrecyclepointname">Enter the name of recycle point</string>
+    <string name="recyclepointName">Name</string>
+
+<!--    Report-->
+    <string name="addreport">ADD ILLEGAL DUMP REPORT</string>
+    <string name="updatereport">UPDATE ILLEGAL DUMP REPORT</string>
+    <string name="approvedreport">APPROVED ILLEGAL DUMP REPORT</string>
+
+    <string name="description">Description</string>
+    <string name="adddescription">Enter the description</string>
+
+    <string name="typeofwaste">Type Of Waste</string>
+    <string name="addtypeofwaste">Enter the type of waste</string>
+
+    <string name="Address">Address</string>
+    <string name="addaddress">Enter the Address</string>
+
+    <string name="addimage">Add Image</string>
+    <string name="submit">Submit</string>
+    <string name="update">Update</string>
+    <string name="updates">Update Status</string>
+    <string name="completed">Completed</string>
 </resources>

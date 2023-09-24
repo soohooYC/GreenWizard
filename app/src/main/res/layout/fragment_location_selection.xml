@@ -15,7 +15,7 @@
             style="@style/newsInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Choose 1 of the module to proceed"
+            android:text="@string/choose"
             android:textAlignment="center"
             tools:layout_editor_absoluteX="48dp"
             tools:layout_editor_absoluteY="0dp" />
@@ -24,14 +24,12 @@
             android:id="@+id/Recycle_Point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="244dp"
-            android:text="Recycle_Point"
-            app:layout_constraintBottom_toTopOf="@+id/Selection_Title"
+            android:layout_marginBottom="308dp"
+            android:text="@string/recycle_Point"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.462"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/Report"
@@ -40,11 +38,25 @@
             android:layout_marginTop="16dp"
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
-            android:text="Report"
+            android:text="@string/report"
             app:layout_constraintBottom_toBottomOf="@+id/Selection_Title"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/Recycle_Point" />
+            app:layout_constraintTop_toBottomOf="@+id/Recycle_Point"
+            app:layout_constraintVertical_bias="0.617" />
+
+        <Button
+            android:id="@+id/reportadmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/reportadmin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Report" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -26,6 +26,12 @@ interface LocationDao {
     @Query(value = "Select * FROM report_table ORDER BY id ASC")
     fun readAllReportData(): LiveData<List<Report>>
 
+    @Query(value = "SELECT * FROM report_table WHERE status = 'New' ORDER BY id ASC")
+    fun readNewReportData(): LiveData<List<Report>>
+
+    @Query(value = "SELECT * FROM report_table WHERE status = 'Approved' ORDER BY id ASC")
+    fun readApprovedReportData(): LiveData<List<Report>>
+
     //RecyclePoint
     @Insert (onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRecycle(recyclePoint: RecyclePoint)

@@ -59,7 +59,7 @@ class addReport : Fragment() {
             val address = editAddress.text.toString()
             val description = editdescription.text.toString()
             val typeofWaste = edittypeofWaste.text.toString()
-            val status = "new"
+            val status = "New"
 
             if (inputCheck(description, typeofWaste)) {
                 // Check if an image is selected

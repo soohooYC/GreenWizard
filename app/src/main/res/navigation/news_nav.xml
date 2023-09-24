@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_listReport_to_updateReport"
             app:destination="@id/updateReport" />
+        <action
+            android:id="@+id/action_listReport_to_approved_reportFragment"
+            app:destination="@id/approved_reportFragment" />
     </fragment>
     <fragment
         android:id="@+id/addReport"
@@ -52,6 +55,9 @@
         <action
             android:id="@+id/action_locationSelectionFragment_to_listRecycle"
             app:destination="@id/listRecycle" />
+        <action
+            android:id="@+id/action_locationSelectionFragment_to_list_report_newFragment"
+            app:destination="@id/list_report_newFragment" />
     </fragment>
     <fragment
         android:id="@+id/listRecycle"
@@ -138,5 +144,27 @@
         <action
             android:id="@+id/action_listFeedback_to_addFeedback"
             app:destination="@id/addFeedback" />
+    </fragment>
+    <fragment
+        android:id="@+id/approved_reportFragment"
+        android:name="com.example.greenwizard.fragments.update.approved_reportFragment"
+        android:label="approved_reportFragment" >
+        <action
+            android:id="@+id/action_approved_reportFragment_to_list_report_newFragment"
+            app:destination="@id/list_report_newFragment" />
+        <argument
+            android:name="currentReport"
+            app:argType="com.example.greenwizard.model.Report" />
+        <action
+            android:id="@+id/action_approved_reportFragment_to_listReport"
+            app:destination="@id/listReport" />
+    </fragment>
+    <fragment
+        android:id="@+id/list_report_newFragment"
+        android:name="com.example.greenwizard.fragments.list.list_report_newFragment"
+        android:label="list_report_newFragment" >
+        <action
+            android:id="@+id/action_list_report_newFragment_to_approved_reportFragment"
+            app:destination="@id/approved_reportFragment" />
     </fragment>
 </navigation>

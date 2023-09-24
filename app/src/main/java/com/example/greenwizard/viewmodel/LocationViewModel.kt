@@ -14,7 +14,9 @@ import kotlinx.coroutines.launch
 class LocationViewModel(application: Application) : AndroidViewModel(application) {
 
     val readAllData: LiveData<List<Report>> // Change visibility to public
+    val readNewReportData: LiveData<List<Report>>
     val readAllRecycleData: LiveData<List<RecyclePoint>> // Change visibility to public
+
     private val repository: LocationRepository
 
     init {
@@ -22,6 +24,7 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
         repository = LocationRepository(locationDao)
         readAllData = repository.readAllData
         readAllRecycleData = repository.readAllRecycleData
+        readNewReportData = repository.readNewReportData
     }
 
     //Illegal Dump Report

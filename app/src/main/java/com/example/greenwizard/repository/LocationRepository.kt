@@ -8,6 +8,8 @@ import com.example.greenwizard.model.Report
 class LocationRepository (private val LocationDao: LocationDao){
 
     val readAllData: LiveData<List<Report>> = LocationDao.readAllReportData()
+    val readNewReportData: LiveData<List<Report>> = LocationDao.readNewReportData()
+
     val readAllRecycleData: LiveData<List<RecyclePoint>> = LocationDao.readAllRecycleData()
 
     //Illegal Dump Report
