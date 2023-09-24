@@ -86,12 +86,13 @@ class UpdateReport : Fragment() {
             val location = updateaddress.text.toString()
             val description = updatedescription.text.toString()
             val typeofWaste = updatetypeofWaste.text.toString()
-
+            val status = args.currentReport.status.toString()
             if (inputCheck(description, typeofWaste)) {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
                 // Create news Object
-                val updatedNews = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),imagePath ?: "")
+                val updatedNews = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),
+                     status,imagePath ?: "")
                 // Update data to ViewModel
                 reportViewModel.updateReport(updatedNews)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()

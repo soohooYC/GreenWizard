@@ -67,15 +67,6 @@ class approved_reportFragment : Fragment() {
             updateImg.setImageURI(selectedImageUri)
         }
 
-        // Register for result when an image is picked
-        val getContent = registerForActivityResult(ActivityResultContracts.GetContent()) { uri: Uri? ->
-            if (uri != null) {
-                // Set the selected image URI and display it in the ImageView
-                selectedImageUri = uri
-                updateImg.setImageURI(uri)
-            }
-        }
-
         deleteBtn.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setPositiveButton("Yes") { _, _ ->
@@ -93,8 +84,7 @@ class approved_reportFragment : Fragment() {
                         description,
                         typeofWaste,
                         System.currentTimeMillis(),
-                        Rstatus,
-                        imagePath ?: ""
+                        Rstatus
                     )
                     // Update data to ViewModel
                     reportViewModel.updateReport(updatedNews)
@@ -129,8 +119,7 @@ class approved_reportFragment : Fragment() {
                     description,
                     typeofWaste,
                     System.currentTimeMillis(),
-                    Rstatus,
-                    imagePath ?: ""
+                    Rstatus
                 )
                 // Update data to ViewModel
                 reportViewModel.updateReport(updatedNews)
