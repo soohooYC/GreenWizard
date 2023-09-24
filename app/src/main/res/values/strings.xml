@@ -11,6 +11,7 @@
     <string name="reportadmin">Report for admin</string>
     <string name="report">Report</string>
     <string name="recycle_Point">Recycle Point</string>
+
 <!--    Recycle point-->
     <string name="addrecyclepoint">ADD RECYCLE POINT</string>
     <string name="updaterecycle">UPDATE RECYCLE POINT</string>
@@ -36,4 +37,5 @@
     <string name="update">Update</string>
     <string name="updates">Update Status</string>
     <string name="completed">Completed</string>
+    <string name="approved">Approved</string>
 </resources>

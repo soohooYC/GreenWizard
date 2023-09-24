@@ -84,7 +84,8 @@ class approved_reportFragment : Fragment() {
                         description,
                         typeofWaste,
                         System.currentTimeMillis(),
-                        Rstatus
+                        Rstatus,
+                        args.currentReport.imagePath
                     )
                     // Update data to ViewModel
                     reportViewModel.updateReport(updatedNews)
@@ -100,8 +101,7 @@ class approved_reportFragment : Fragment() {
                 // Do nothing or dismiss the dialog
             }
             builder.setTitle("Delete ${args.currentReport.description}?")
-            builder.setMessage("Are you sure you want to decline ${args.currentReport.description} in " +
-                    "${args.currentReport.status}?")
+            builder.setMessage("Are you sure you want to decline ${args.currentReport.description} ?")
             builder.create().show()
         }
 
@@ -119,7 +119,8 @@ class approved_reportFragment : Fragment() {
                     description,
                     typeofWaste,
                     System.currentTimeMillis(),
-                    Rstatus
+                    Rstatus,
+                    args.currentReport.imagePath
                 )
                 // Update data to ViewModel
                 reportViewModel.updateReport(updatedNews)
@@ -128,7 +129,6 @@ class approved_reportFragment : Fragment() {
                 // Navigate Back
 
                 findNavController().navigate(R.id.action_approved_reportFragment_to_list_report_newFragment)
-
         }
 
         return view

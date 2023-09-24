@@ -51,15 +51,15 @@
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="317dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="4dp"
-        android:text="@string/update"
-        app:layout_constraintBottom_toTopOf="@+id/updateStatusBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="317dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="6dp"
+            android:text="@string/update"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/uImgbtn" />
 
     <Button
         android:id="@+id/updateStatusBtn"
@@ -123,16 +123,16 @@
         app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/uImgbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="128dp"
-        android:text="@string/addimage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/uImgbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="128dp"
+            android:text="@string/addimage"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/updateImg"

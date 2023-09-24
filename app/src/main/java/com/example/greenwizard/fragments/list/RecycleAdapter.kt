@@ -20,6 +20,7 @@ class RecycleAdapter : RecyclerView.Adapter<RecycleAdapter.MyViewHolder>()  {
         // Define your TextViews here
         val idView: TextView = itemView.findViewById(R.id.idView)
         val nameView: TextView = itemView.findViewById(R.id.nameView)
+
         val rowLayout: ConstraintLayout = itemView.findViewById(R.id.rowLayout)
     }
 

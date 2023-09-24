@@ -81,6 +81,10 @@ class UpdateReport : Fragment() {
             getContent.launch("image/*") // Specify the MIME type for images
         }
 
+        if(!args.currentReport.status.equals("Approved")){
+            updateStatusBtn.visibility = View.GONE
+        }
+
         updateBtn.setOnClickListener() {
 
             val location = updateaddress.text.toString()
@@ -119,8 +123,7 @@ class UpdateReport : Fragment() {
                 // Do nothing or dismiss the dialog
             }
             builder.setTitle("Delete ${args.currentReport.description}?")
-            builder.setMessage("Are you sure you want to delete ${args.currentReport.description} in " +
-                    "${args.currentReport.status}?")
+            builder.setMessage("Are you sure you want to delete ${args.currentReport.description} ?")
             builder.create().show()
         }
 

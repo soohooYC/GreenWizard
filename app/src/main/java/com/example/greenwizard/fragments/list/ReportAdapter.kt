@@ -9,6 +9,9 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.greenwizard.R
 import com.example.greenwizard.model.Report
+import org.w3c.dom.Text
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class ReportAdapter : RecyclerView.Adapter<ReportAdapter.MyViewHolder>() {
 
@@ -19,6 +22,7 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.MyViewHolder>() {
         val idView: TextView = itemView.findViewById(R.id.idView)
         val titleView: TextView = itemView.findViewById(R.id.descriptionView)
         val titlestatus: TextView = itemView.findViewById(R.id.statusView)
+        val titledate: TextView = itemView.findViewById(R.id.dateView)
 
         val rowLayout: ConstraintLayout = itemView.findViewById(R.id.rowLayout)
     }
@@ -38,6 +42,9 @@ class ReportAdapter : RecyclerView.Adapter<ReportAdapter.MyViewHolder>() {
         holder.idView.text = currentItem.id.toString()
         holder.titleView.text = currentItem.description
         holder.titlestatus.text = currentItem.status
+
+        val formattedDate = SimpleDateFormat("yyyy-MM-dd").format(Date(currentItem.date))
+        holder.titledate.text = formattedDate
 
         holder.rowLayout.setOnClickListener{
             val action = listReportDirections.actionListReportToUpdateReport(currentItem)
