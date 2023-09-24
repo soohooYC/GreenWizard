@@ -76,12 +76,6 @@ class approved_reportFragment : Fragment() {
             }
         }
 
-        // Trigger image selection when a button is clicked
-        val selectImageButton = view.findViewById<Button>(R.id.uImgbtn)
-        selectImageButton.setOnClickListener {
-            getContent.launch("image/*") // Specify the MIME type for images
-        }
-
         deleteBtn.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setPositiveButton("Yes") { _, _ ->
@@ -91,7 +85,7 @@ class approved_reportFragment : Fragment() {
                 val typeofWaste = updatetypeofWaste.text.toString()
 
                     // Check if an image is selected
-                    val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
+                    val imagePath = updateImg?.toString() // Get the selected image URI as a string
                     var Rstatus = "Decline"
                     val updatedNews = Report(
                         args.currentReport.id,
@@ -127,7 +121,7 @@ class approved_reportFragment : Fragment() {
             val typeofWaste = updatetypeofWaste.text.toString()
 
                 // Check if an image is selected
-                val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
+                val imagePath = updateImg?.toString() // Get the selected image URI as a string
                 var Rstatus = "Approved"
                 val updatedNews = Report(
                     args.currentReport.id,

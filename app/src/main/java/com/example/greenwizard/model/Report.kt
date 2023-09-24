@@ -23,6 +23,9 @@ data class Report (
     constructor(address: String, description: String, typeofWaste: String, imagePath: String) :
             this(null, address, description, typeofWaste, System.currentTimeMillis(),imagePath)
 
+    constructor(address: String, description: String, typeofWaste: String, status: String, date: Long) :
+            this(null, address, description, typeofWaste, date, status)
+
 }
 
 
