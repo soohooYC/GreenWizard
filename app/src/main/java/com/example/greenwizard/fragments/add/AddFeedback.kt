@@ -58,7 +58,7 @@ class addFeedback : Fragment() {
                 // Insert the feedback into the Room database using the ViewModel
                 feedbackViewModel.addFeedback(feedback)
                 Toast.makeText(requireContext(), "Successfully Added", Toast.LENGTH_LONG).show()
-                findNavController().navigate(R.id.action_addFeedback_to_listFeedback)
+//                findNavController().navigate(R.id.action_addFeedback_to_listFeedback)
             } else {
                 Toast.makeText(requireContext(), "Please enter a valid rating and comment.", Toast.LENGTH_SHORT).show()
             }
