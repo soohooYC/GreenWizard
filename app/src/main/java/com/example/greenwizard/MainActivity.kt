@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
             }
         requestPermission()
 
+        //Bottom Nav
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
@@ -60,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
+    //Close KeyBoard
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
         val view = currentFocus
         if (view != null) {
@@ -69,6 +71,7 @@ class MainActivity : AppCompatActivity() {
         return super.dispatchTouchEvent(ev)
     }
 
+    //Option Menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.feedback, menu)
         return true
@@ -79,7 +82,7 @@ class MainActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.Feedback -> {
                 // Navigate to the Add Feedback fragment
-                navController.navigate(R.id.addFeedback)
+                navController.navigate(R.id.listFeedback)
                 return true
             }
             // Add more cases for other menu items if needed

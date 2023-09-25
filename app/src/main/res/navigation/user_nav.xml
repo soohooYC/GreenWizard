@@ -3,58 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/user_nav"
-    app:startDestination="@id/addReport">
+    app:startDestination="@id/addFeedback">
 
     <fragment
-        android:id="@+id/addReport"
-        android:name="com.example.greenwizard.fragments.add.addReport"
-        android:label="fragment_add_report"
-        tools:layout="@layout/fragment_add_report" >
-        <action
-            android:id="@+id/action_addReport_to_listReport"
-            app:destination="@id/listReport" />
-    </fragment>
-    <fragment
-        android:id="@+id/listReport"
-        android:name="com.example.greenwizard.fragments.list.listReport"
-        android:label="fragment_list_report"
-        tools:layout="@layout/fragment_list_report" >
-        <action
-            android:id="@+id/action_listReport2_to_addReport2"
-            app:destination="@id/addReport" />
-        <action
-            android:id="@+id/action_listReport_to_updateReport"
-            app:destination="@id/updateReport" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateReport"
-        android:name="com.example.greenwizard.fragments.update.UpdateReport"
-        android:label="fragment_update_report"
-        tools:layout="@layout/fragment_update_report" >
-        <action
-            android:id="@+id/action_updateReport_to_listReport"
-            app:destination="@id/listReport" />
-        <argument
-            android:name="currentReport"
-            app:argType="com.example.greenwizard.model.Report" />
-    </fragment>
-    <fragment
-        android:id="@+id/list_recycle_userFragment"
-        android:name="com.example.greenwizard.fragments.list.list_recycle_userFragment"
-        android:label="list_recycle_userFragment" >
-        <action
-            android:id="@+id/action_list_recycle_userFragment_to_updateRecycleUserFragment"
-            app:destination="@id/updateRecycleUserFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateRecycleUserFragment"
-        android:name="com.example.greenwizard.fragments.update.UpdateRecycleUserFragment"
-        android:label="UpdateRecycleUserFragment" >
-        <action
-            android:id="@+id/action_updateRecycleUserFragment_to_list_recycle_userFragment"
-            app:destination="@id/list_recycle_userFragment" />
-        <argument
-            android:name="curremtRecycle"
-            app:argType="com.example.greenwizard.model.RecyclePoint" />
-    </fragment>
+        android:id="@+id/addFeedback"
+        android:name="com.example.greenwizard.fragments.add.addFeedback"
+        android:label="fragment_add_feedback"
+        tools:layout="@layout/fragment_add_feedback" />
 </navigation>
