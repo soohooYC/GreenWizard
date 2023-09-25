@@ -1,0 +1,43 @@
+Index: app/src/main/java/com/example/greenwizard/user.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.example.greenwizard\r\n\r\nimport androidx.appcompat.app.AppCompatActivity\r\nimport android.os.Bundle\r\nimport androidx.navigation.findNavController\r\nimport androidx.navigation.ui.NavigationUI\r\nimport com.google.android.material.bottomnavigation.BottomNavigationView\r\n\r\nclass user : AppCompatActivity() {\r\n    override fun onCreate(savedInstanceState: Bundle?) {\r\n        super.onCreate(savedInstanceState)\r\n        setContentView(R.layout.activity_user)\r\n\r\n        val navController = this.findNavController(R.id.myNavHostFragment)\r\n        NavigationUI.setupActionBarWithNavController(this, navController)\r\n\r\n        //Bottom Nav\r\n        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)\r\n        bottomNavigationView.setOnNavigationItemSelectedListener { item ->\r\n            when (item.itemId) {\r\n                R.id.home -> {\r\n                    // Navigate to the location Select\r\n\r\n                }\r\n                R.id.news -> {\r\n                    // Navigate to the list News\r\n\r\n                }\r\n            }\r\n            false\r\n        }\r\n    }\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/greenwizard/user.kt b/app/src/main/java/com/example/greenwizard/user.kt
+--- a/app/src/main/java/com/example/greenwizard/user.kt	(revision 0a7e102d8fe570372efb46e39a9b6dc341ae6781)
++++ b/app/src/main/java/com/example/greenwizard/user.kt	(date 1695635106123)
+@@ -2,6 +2,8 @@
+ 
+ import androidx.appcompat.app.AppCompatActivity
+ import android.os.Bundle
++import android.view.Menu
++import android.view.MenuItem
+ import androidx.navigation.findNavController
+ import androidx.navigation.ui.NavigationUI
+ import com.google.android.material.bottomnavigation.BottomNavigationView
+@@ -30,4 +32,22 @@
+             false
+         }
+     }
++
++    override fun onCreateOptionsMenu(menu: Menu): Boolean {
++        menuInflater.inflate(R.menu.feedback, menu)
++        return true
++    }
++
++    override fun onOptionsItemSelected(item: MenuItem): Boolean {
++        val navController = findNavController(R.id.myNavHostFragment)
++        when (item.itemId) {
++            R.id.Feedback -> {
++                // Navigate to the Add Feedback fragment
++                navController.navigate(R.id.addFeedback)
++                return true
++            }
++            // Add more cases for other menu items if needed
++            else -> return super.onOptionsItemSelected(item)
++        }
++    }
+ }
+\ No newline at end of file
