@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/user_nav">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/user_nav"
+    app:startDestination="@id/addFeedback">
 
+    <fragment
+        android:id="@+id/addFeedback"
+        android:name="com.example.greenwizard.fragments.add.addFeedback"
+        android:label="fragment_add_feedback"
+        tools:layout="@layout/fragment_add_feedback" />
 </navigation>
