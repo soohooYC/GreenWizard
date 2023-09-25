@@ -11,10 +11,12 @@ import android.view.MotionEvent
 import androidx.activity.result.ActivityResultLauncher
 import androidx.core.content.ContextCompat
 import android.Manifest
+import android.content.Intent
 import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
     private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
@@ -36,6 +38,13 @@ class MainActivity : AppCompatActivity() {
                     permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: isWritePermissionGranted
             }
         requestPermission()
+//
+//        val buttonGoToSecondActivity = findViewById<Button>(R.id.buttonGoToSecondActivity)
+//
+//        buttonGoToSecondActivity.setOnClickListener {
+//            val intent = Intent(this, SecondActivity::class.java)
+//            startActivity(intent)
+//        }
 
         //Bottom Nav
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
@@ -43,7 +52,7 @@ class MainActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> {
                     // Navigate to the location Select
-                    navController.navigate(R.id.locationSelectionFragment)
+                    navController.navigate(R.id.locationSelectionAdminragment)
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.news -> {

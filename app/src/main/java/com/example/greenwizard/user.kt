@@ -20,7 +20,8 @@ class user : AppCompatActivity() {
             when (item.itemId) {
                 R.id.home -> {
                     // Navigate to the location Select
-
+                    navController.navigate(R.id.locationSelectionFragment)
+                    return@setOnNavigationItemSelectedListener true
                 }
                 R.id.news -> {
                     // Navigate to the list News
