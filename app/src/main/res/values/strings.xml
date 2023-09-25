@@ -10,15 +10,17 @@
     <string name="choose">Choose 1 of the module to proceed</string>
     <string name="reportadmin">Report for admin</string>
     <string name="report">Report</string>
+    <string name="recycle_Pointadmin">Recycle Point for admin</string>
     <string name="recycle_Point">Recycle Point</string>
 
-<!--    Recycle point-->
+    <!--    Recycle point-->
     <string name="addrecyclepoint">ADD RECYCLE POINT</string>
     <string name="updaterecycle">UPDATE RECYCLE POINT</string>
+    <string name="viewrecycle">VIEW RECYCLE POINT</string>
     <string name="addrecyclepointname">Enter the name of recycle point</string>
     <string name="recyclepointName">Name</string>
 
-<!--    Report-->
+    <!--    Report-->
     <string name="addreport">ADD ILLEGAL DUMP REPORT</string>
     <string name="updatereport">UPDATE ILLEGAL DUMP REPORT</string>
     <string name="approvedreport">APPROVED ILLEGAL DUMP REPORT</string>

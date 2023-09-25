@@ -18,7 +18,8 @@ class LocationSelectionFragment : Fragment() {
 
         val rbutton = view.findViewById<Button>(R.id.Report)
         val rabutton = view.findViewById<Button>(R.id.reportadmin)
-        val rpbutton = view.findViewById<Button>(R.id.Recycle_Point)
+        val rpbutton = view.findViewById<Button>(R.id.recycle_Point)
+        val rpabutton = view.findViewById<Button>(R.id.recycle_Pointadmin)
 
         rbutton.setOnClickListener {
             view.findNavController().navigate(R.id.action_locationSelectionFragment_to_listReport)
@@ -27,6 +28,9 @@ class LocationSelectionFragment : Fragment() {
             view.findNavController().navigate(R.id.action_locationSelectionFragment_to_list_report_newFragment)
         }
         rpbutton.setOnClickListener{
+            view.findNavController().navigate(R.id.action_locationSelectionFragment_to_list_recycle_userFragment)
+        }
+        rpabutton.setOnClickListener{
             view.findNavController().navigate(R.id.action_locationSelectionFragment_to_listRecycle)
         }
 

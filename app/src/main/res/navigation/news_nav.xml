@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_locationSelectionFragment_to_list_report_newFragment"
             app:destination="@id/list_report_newFragment" />
+        <action
+            android:id="@+id/action_locationSelectionFragment_to_list_recycle_userFragment"
+            app:destination="@id/list_recycle_userFragment" />
     </fragment>
     <fragment
         android:id="@+id/listRecycle"
@@ -166,5 +169,24 @@
         <action
             android:id="@+id/action_list_report_newFragment_to_approved_reportFragment"
             app:destination="@id/approved_reportFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateRecycleUserFragment"
+        android:name="com.example.greenwizard.fragments.update.UpdateRecycleUserFragment"
+        android:label="UpdateRecycleUserFragment" >
+        <argument
+            android:name="currentRecycle"
+            app:argType="com.example.greenwizard.model.RecyclePoint" />
+        <action
+            android:id="@+id/action_updateRecycleUserFragment_to_list_recycle_userFragment"
+            app:destination="@id/list_recycle_userFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/list_recycle_userFragment"
+        android:name="com.example.greenwizard.fragments.list.list_recycle_userFragment"
+        android:label="list_recycle_userFragment" >
+        <action
+            android:id="@+id/action_list_recycle_userFragment_to_updateRecycleUserFragment"
+            app:destination="@id/updateRecycleUserFragment" />
     </fragment>
 </navigation>
