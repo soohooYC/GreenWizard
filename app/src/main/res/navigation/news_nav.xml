@@ -6,61 +6,15 @@
     app:startDestination="@id/locationSelectionFragment">
 
     <fragment
-        android:id="@+id/listReport"
-        android:name="com.example.greenwizard.fragments.list.listReport"
-        android:label="Report"
-        app:navGraph="@navigation/news_nav"
-        app:defaultNavHost="true"
-        tools:layout="@layout/fragment_list_report" >
-        <action
-            android:id="@+id/action_listReport_to_addReport"
-            app:destination="@id/addReport" />
-        <action
-            android:id="@+id/action_listReport_to_updateReport"
-            app:destination="@id/updateReport" />
-        <action
-            android:id="@+id/action_listReport_to_approved_reportFragment"
-            app:destination="@id/approved_reportFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/addReport"
-        android:name="com.example.greenwizard.fragments.add.addReport"
-        android:label="Add Report"
-        app:navGraph="@navigation/news_nav"
-        app:defaultNavHost="true"
-        tools:layout="@layout/fragment_add_report" >
-        <action
-            android:id="@+id/action_addReport_to_listReport"
-            app:destination="@id/listReport" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateReport"
-        android:name="com.example.greenwizard.fragments.update.UpdateReport"
-        android:label="Update Report"
-        tools:layout="@layout/fragment_update_report" >
-        <action
-            android:id="@+id/action_updateReport_to_listReport"
-            app:destination="@id/listReport" />
-        <argument
-            android:name="currentReport"
-            app:argType="com.example.greenwizard.model.Report" />
-    </fragment>
-    <fragment
         android:id="@+id/locationSelectionFragment"
         android:name="com.example.greenwizard.LocationSelectionFragment"
         android:label="Greenwizard" >
-        <action
-            android:id="@+id/action_locationSelectionFragment_to_listReport"
-            app:destination="@id/listReport" />
         <action
             android:id="@+id/action_locationSelectionFragment_to_listRecycle"
             app:destination="@id/listRecycle" />
         <action
             android:id="@+id/action_locationSelectionFragment_to_list_report_newFragment"
             app:destination="@id/list_report_newFragment" />
-        <action
-            android:id="@+id/action_locationSelectionFragment_to_list_recycle_userFragment"
-            app:destination="@id/list_recycle_userFragment" />
     </fragment>
     <fragment
         android:id="@+id/listRecycle"
@@ -158,9 +112,6 @@
         <argument
             android:name="currentReport"
             app:argType="com.example.greenwizard.model.Report" />
-        <action
-            android:id="@+id/action_approved_reportFragment_to_listReport"
-            app:destination="@id/listReport" />
     </fragment>
     <fragment
         android:id="@+id/list_report_newFragment"
@@ -169,24 +120,5 @@
         <action
             android:id="@+id/action_list_report_newFragment_to_approved_reportFragment"
             app:destination="@id/approved_reportFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/updateRecycleUserFragment"
-        android:name="com.example.greenwizard.fragments.update.UpdateRecycleUserFragment"
-        android:label="UpdateRecycleUserFragment" >
-        <argument
-            android:name="currentRecycle"
-            app:argType="com.example.greenwizard.model.RecyclePoint" />
-        <action
-            android:id="@+id/action_updateRecycleUserFragment_to_list_recycle_userFragment"
-            app:destination="@id/list_recycle_userFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/list_recycle_userFragment"
-        android:name="com.example.greenwizard.fragments.list.list_recycle_userFragment"
-        android:label="list_recycle_userFragment" >
-        <action
-            android:id="@+id/action_list_recycle_userFragment_to_updateRecycleUserFragment"
-            app:destination="@id/updateRecycleUserFragment" />
     </fragment>
 </navigation>
