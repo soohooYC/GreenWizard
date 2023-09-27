@@ -1,5 +1,6 @@
 package com.example.greenwizard
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -8,8 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.findNavController
 
-class LocationSelectionAdminragment : Fragment() {
 
+class LocationSelectionAdminragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,6 +29,7 @@ class LocationSelectionAdminragment : Fragment() {
         rpabutton.setOnClickListener{
             view.findNavController().navigate(R.id.action_locationSelectionAdminragment_to_listRecycle)
         }
+
 
         return view
     }

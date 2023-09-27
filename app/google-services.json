@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "762626069971",
+    "firebase_url": "https://green-eeed6-default-rtdb.firebaseio.com",
+    "project_id": "green-eeed6",
+    "storage_bucket": "green-eeed6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762626069971:android:5d0478d0d7be4d14f70b26",
+        "android_client_info": {
+          "package_name": "com.example.firebaselogin"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtSbvX-y8mI4AapG3xNKGOsVpSdgl-5cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:762626069971:android:6c3eedfb8502e5dcf70b26",
+        "android_client_info": {
+          "package_name": "com.example.greenwizard"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtSbvX-y8mI4AapG3xNKGOsVpSdgl-5cg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
