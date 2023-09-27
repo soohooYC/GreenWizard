@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/addFeedback"
         android:name="com.example.greenwizard.fragments.add.addFeedback"
-        android:label="fragment_add_feedback"
+        android:label="Feedback"
         tools:layout="@layout/fragment_add_feedback" />
     <fragment
         android:id="@+id/locationSelectionFragment"
