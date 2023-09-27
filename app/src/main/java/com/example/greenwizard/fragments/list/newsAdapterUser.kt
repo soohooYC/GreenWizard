@@ -14,23 +14,23 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import com.bumptech.glide.Glide
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
+class newsAdapterUser : RecyclerView.Adapter<newsAdapterUser.MyViewHolder>() {
 
     private var newsList = emptyList<News>()
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        val titleView: TextView = itemView.findViewById(R.id.titleView)
-        val dateView: TextView = itemView.findViewById(R.id.dateView)
-        val newsImgView: ImageView = itemView.findViewById(R.id.newsImgView)
+        val newstitle: TextView = itemView.findViewById(R.id.newstitle)
+        val newsdate: TextView = itemView.findViewById(R.id.newsdate)
+        val newsIMG: ImageView = itemView.findViewById(R.id.newsIMG)
 
 
-        val rowLayout: ConstraintLayout = itemView.findViewById(R.id.rowLayout)
+        val rowLayoutuser: ConstraintLayout = itemView.findViewById(R.id.rowLayoutuser)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
-            LayoutInflater.from(parent.context).inflate(R.layout.custom_row, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.usernewsrow, parent, false)
         )
     }
 
@@ -40,38 +40,35 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = newsList[position]
-//        holder.idView.text = currentItem.id.toString()
 
         if (!currentItem.imagePath.isNullOrEmpty()) {
             // Load the image using Glide
             try {
                 Glide.with(holder.itemView)
                     .load(currentItem.imagePath)
-                    .into(holder.newsImgView)
+                    .into(holder.newsIMG)
             } catch (e: Exception) {
                 e.printStackTrace()
                 // Handle the exception (e.g., show a placeholder image or hide the ImageView)
-                holder.newsImgView.visibility = View.GONE // Hide the ImageView in case of an exception
+                holder.newsIMG.visibility = View.GONE// Hide the ImageView in case of an exception
             }
         }else{
-            holder.newsImgView.visibility = View.GONE // Hide the ImageView if imagePath is null or empty
+            holder.newsIMG.visibility = View.GONE // Hide the ImageView if imagePath is null or empty
         }
 
 
 
-
-
-        holder.titleView.text = currentItem.title
+        holder.newstitle.text = currentItem.title
 
         // Format the timestamp to a readable date string
         val formattedDate = SimpleDateFormat("yyyy-MM-dd").format(Date(currentItem.date))
-        holder.dateView.text = formattedDate
+        holder.newsdate.text = formattedDate
 
-
-        holder.rowLayout.setOnClickListener{
-            val action = listNewsDirections.actionListNewsToUpdateNews(currentItem)
-            holder.itemView.findNavController().navigate(action)
+        holder.rowLayoutuser.setOnClickListener{
+       val action = userNewsDirections.actionUserNewsToNewsDetail(currentItem)
+        holder.itemView.findNavController().navigate(action)
         }
+
 
     }
 
