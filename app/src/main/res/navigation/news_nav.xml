@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/listRecycle"
         android:name="com.example.greenwizard.fragments.list.listRecycle"
-        android:label="listRecycle" >
+        android:label="List Recycle Point" >
         <action
             android:id="@+id/action_listRecycle_to_addRecycleFragment"
             app:destination="@id/addRecycleFragment" />
@@ -19,7 +19,7 @@
     <fragment
         android:id="@+id/addRecycleFragment"
         android:name="com.example.greenwizard.fragments.add.AddRecycleFragment"
-        android:label="AddRecycleFragment" >
+        android:label="Add Recycle Point" >
         <action
             android:id="@+id/action_addRecycleFragment_to_listRecycle"
             app:destination="@id/listRecycle" />
@@ -27,7 +27,7 @@
     <fragment
         android:id="@+id/updateRecycleFragment"
         android:name="com.example.greenwizard.fragments.update.UpdateRecycleFragment"
-        android:label="UpdateRecycleFragment" >
+        android:label="Update Recycle Point" >
         <action
             android:id="@+id/action_updateRecycleFragment_to_listRecycle"
             app:destination="@id/listRecycle" />
@@ -81,7 +81,7 @@
     <fragment
         android:id="@+id/approved_reportFragment"
         android:name="com.example.greenwizard.fragments.update.approved_reportFragment"
-        android:label="approved_reportFragment" >
+        android:label="Approved Report" >
         <action
             android:id="@+id/action_approved_reportFragment_to_list_report_newFragment"
             app:destination="@id/list_report_newFragment" />
@@ -92,7 +92,7 @@
     <fragment
         android:id="@+id/list_report_newFragment"
         android:name="com.example.greenwizard.fragments.list.list_report_newFragment"
-        android:label="list_report_newFragment" >
+        android:label="List Report Admin" >
         <action
             android:id="@+id/action_list_report_newFragment_to_approved_reportFragment"
             app:destination="@id/approved_reportFragment" />
@@ -100,7 +100,7 @@
     <fragment
         android:id="@+id/locationSelectionAdminragment"
         android:name="com.example.greenwizard.LocationSelectionAdminragment"
-        android:label="LocationSelectionAdminragment" >
+        android:label="Module Selection" >
         <action
             android:id="@+id/action_locationSelectionAdminragment_to_list_report_newFragment"
             app:destination="@id/list_report_newFragment" />
