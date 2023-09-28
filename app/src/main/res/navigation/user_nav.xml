@@ -84,7 +84,7 @@
     </fragment>
     <fragment
         android:id="@+id/newsDetail"
-        android:name="com.example.greenwizard.newsDetail"
+        android:name="com.example.greenwizard.fragments.list.newsDetail"
         android:label="News Details"
         tools:layout="@layout/fragment_news_detail" >
         <action

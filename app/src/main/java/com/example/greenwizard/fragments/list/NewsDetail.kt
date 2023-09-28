@@ -1,4 +1,4 @@
-package com.example.greenwizard
+package com.example.greenwizard.fragments.list
 
 import android.net.Uri
 import android.os.Bundle
@@ -11,11 +11,11 @@ import android.widget.ScrollView
 import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.example.greenwizard.R
 import com.example.greenwizard.viewmodel.NewsViewModel
-
-
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 
 
@@ -55,7 +55,13 @@ class newsDetail : Fragment() {
           if (!args.currentDetails.imagePath.isNullOrEmpty()) {
               try {
                   selectedImageUri = Uri.parse(args.currentDetails.imagePath)
-                  imgDetail.setImageURI(selectedImageUri)
+
+                  // Use Glide to load and display the image
+                  Glide.with(this)
+                      .load(selectedImageUri)
+                      .placeholder(R.drawable.baseline_image_24)
+                      .transition(DrawableTransitionOptions.withCrossFade())
+                      .into(imgDetail)
               } catch (e: Exception) {
                   // Handle any exceptions related to accessing the URI
                   e.printStackTrace()
