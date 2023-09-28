@@ -59,7 +59,6 @@ class newsDetail : Fragment() {
                   // Use Glide to load and display the image
                   Glide.with(this)
                       .load(selectedImageUri)
-                      .placeholder(R.drawable.baseline_image_24)
                       .transition(DrawableTransitionOptions.withCrossFade())
                       .into(imgDetail)
               } catch (e: Exception) {
