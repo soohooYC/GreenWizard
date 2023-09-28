@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
@@ -17,7 +18,6 @@ import com.bumptech.glide.Glide
 class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
 
     private var newsList = emptyList<News>()
-
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val titleView: TextView = itemView.findViewById(R.id.titleView)
@@ -25,7 +25,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
         val newsImgView: ImageView = itemView.findViewById(R.id.newsImgView)
 
 
-        val rowLayout: ConstraintLayout = itemView.findViewById(R.id.rowLayout)
+        val rowLayout: LinearLayout = itemView.findViewById(R.id.rowLayout)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -58,9 +58,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
         }
 
 
-
-
-
         holder.titleView.text = currentItem.title
 
         // Format the timestamp to a readable date string
@@ -78,5 +75,15 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
     fun setData(news: List<News>) {
         this.newsList = news
         notifyDataSetChanged()
+    }
+
+    // Truncate text to a specified number of words
+    private fun truncateText(text: String, maxWords: Int): String {
+        val words = text.split("\\s+".toRegex())
+        if (words.size > maxWords) {
+            val truncatedWords = words.subList(0, maxWords)
+            return truncatedWords.joinToString(" ") + "\n" + words.subList(maxWords, words.size).joinToString(" ")
+        }
+        return text
     }
 }
