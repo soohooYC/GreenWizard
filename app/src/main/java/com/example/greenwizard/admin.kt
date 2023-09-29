@@ -54,9 +54,8 @@ class admin: AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.account-> {
-                    // Start the new activity when "account" is selected
-                    val intent = Intent(this, MainActivity::class.java)
-                    startActivity(intent)
+                    // Navigate to the ProfileFragment
+                    navController.navigate(R.id.profileFragment)
                     return@setOnNavigationItemSelectedListener true
                 }
             }

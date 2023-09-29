@@ -40,8 +40,9 @@ class MainActivity : AppCompatActivity() , EasyPermissions.PermissionCallbacks  
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.account -> {
-                    val intent = Intent(this, admin::class.java)
-                    startActivity(intent)
+                    // Navigate to the ProfileFragment
+                    navController.navigate(R.id.profileFragment)
+                    return@setOnNavigationItemSelectedListener true
                 }
             }
             false

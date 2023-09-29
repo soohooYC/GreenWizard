@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+
+    <!-- Outer background color (lavender) -->
+    <solid android:color="@color/lavender" />
+
+    <!-- Rounded corners (adjust radius as needed) -->
+    <corners android:radius="20dp" />
+
+    <!-- Add a gradient to create a more appealing background -->
+    <gradient
+        android:startColor="#8692f7"
+        android:endColor="#8692f7"
+        android:angle="45"
+    />
+</shape>
