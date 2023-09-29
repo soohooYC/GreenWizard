@@ -21,8 +21,6 @@ import com.example.greenwizard.R
 import com.example.greenwizard.model.News
 import com.example.greenwizard.viewmodel.NewsViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 
 class UpdateNews : Fragment() {
 
@@ -62,10 +60,7 @@ class UpdateNews : Fragment() {
         if (!args.currentNews.imagePath.isNullOrEmpty()) {
             try {
                 selectedImageUri = Uri.parse(args.currentNews.imagePath)
-                Glide.with(this)
-                    .load(selectedImageUri)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(updateImg)
+                updateImg.setImageURI(selectedImageUri)
             } catch (e: Exception) {
                 // Handle any exceptions related to accessing the URI
                 e.printStackTrace()
@@ -77,10 +72,7 @@ class UpdateNews : Fragment() {
             if (uri != null) {
                 // Set the selected image URI and display it in the ImageView
                 selectedImageUri = uri
-                Glide.with(this)
-                    .load(uri)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(updateImg)
+                updateImg.setImageURI(uri)
             }
         }
 
