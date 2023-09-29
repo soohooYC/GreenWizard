@@ -15,7 +15,6 @@ import com.example.greenwizard.R
 import androidx.navigation.fragment.navArgs
 import com.example.greenwizard.viewmodel.NewsViewModel
 
-
 class newsDetail : Fragment() {
 
     private lateinit var uNewsViewModel: NewsViewModel
