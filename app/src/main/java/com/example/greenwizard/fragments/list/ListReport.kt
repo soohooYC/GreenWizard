@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -23,10 +24,11 @@ class listReport : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_list_report, container, false)
 
         val floatingActionBtn = view.findViewById<FloatingActionButton>(R.id.floatingActionBtn)
+
+        val FilterReportbtn = view.findViewById<FloatingActionButton>(R.id.FilterReportbtn)
 
         // RecyclerView
         val adapter = ReportAdapter()
@@ -42,6 +44,53 @@ class listReport : Fragment() {
 
         floatingActionBtn.setOnClickListener {
             findNavController().navigate(R.id.action_listReport_to_addReport)
+        }
+
+        var clickCount = 0
+
+        FilterReportbtn.setOnClickListener {
+
+            clickCount++
+
+        when (clickCount) {
+                1 -> {
+                    mLocationViewModel.readNewReportData.observe(
+                        viewLifecycleOwner,
+                        Observer { reportList ->
+                            adapter.setData(reportList)
+                        })
+
+                    Toast.makeText(requireContext(), "New Report $clickCount", Toast.LENGTH_SHORT).show()
+                }
+                2 -> {
+                    mLocationViewModel.readApprovedReportData.observe(
+                        viewLifecycleOwner,
+                        Observer { reportList ->
+                            adapter.setData(reportList)
+                        })
+
+                    Toast.makeText(requireContext(), "Approved Report $clickCount", Toast.LENGTH_SHORT).show()
+                }
+                3 -> {
+                    mLocationViewModel.readCompletedReportData.observe(
+                        viewLifecycleOwner,
+                        Observer { reportList ->
+                            adapter.setData(reportList)
+                        })
+
+                    Toast.makeText(requireContext(), "Completed Report $clickCount", Toast.LENGTH_SHORT).show()
+                }
+                else -> {
+                    mLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
+                    mLocationViewModel.readAllData.observe(viewLifecycleOwner, Observer { reportList ->
+                        adapter.setData(reportList)
+                    })
+                    Toast.makeText(requireContext(), "All Report $clickCount", Toast.LENGTH_SHORT).show()
+
+                    clickCount = 0 // Reset clickCount to 0
+                }
+            }
+
         }
 
         return view

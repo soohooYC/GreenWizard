@@ -4,11 +4,15 @@ import androidx.lifecycle.LiveData
 import com.example.greenwizard.data.LocationDao
 import com.example.greenwizard.model.RecyclePoint
 import com.example.greenwizard.model.Report
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class LocationRepository (private val LocationDao: LocationDao){
 
     val readAllData: LiveData<List<Report>> = LocationDao.readAllReportData()
     val readNewReportData: LiveData<List<Report>> = LocationDao.readNewReportData()
+    val readApprovedReportData: LiveData<List<Report>> = LocationDao.readApprovedReportData()
+    val readCompletedReportData: LiveData<List<Report>> = LocationDao.readCompletedReportData()
 
     val readAllRecycleData: LiveData<List<RecyclePoint>> = LocationDao.readAllRecycleData()
 
