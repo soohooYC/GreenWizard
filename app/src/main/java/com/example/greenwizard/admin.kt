@@ -27,7 +27,7 @@ class admin: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin)
 
-        val navController = this.findNavController(R.id.usernavHost)
+        val navController = this.findNavController(R.id.adminnavHost)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
         permissionLauncher =
@@ -38,13 +38,6 @@ class admin: AppCompatActivity() {
                     permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: isWritePermissionGranted
             }
         requestPermission()
-//
-//        val buttonGoToSecondActivity = findViewById<Button>(R.id.buttonGoToSecondActivity)
-//
-//        buttonGoToSecondActivity.setOnClickListener {
-//            val intent = Intent(this, SecondActivity::class.java)
-//            startActivity(intent)
-//        }
 
         //Bottom Nav
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)
@@ -60,13 +53,19 @@ class admin: AppCompatActivity() {
                     navController.navigate(R.id.listNews)
                     return@setOnNavigationItemSelectedListener true
                 }
+                R.id.account-> {
+                    // Start the new activity when "account" is selected
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    return@setOnNavigationItemSelectedListener true
+                }
             }
             false
         }
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        val navController = findNavController(R.id.usernavHost)
+        val navController = findNavController(R.id.adminnavHost)
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
 
@@ -87,7 +86,7 @@ class admin: AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val navController = findNavController(R.id.usernavHost)
+        val navController = findNavController(R.id.adminnavHost)
         when (item.itemId) {
             R.id.Feedback -> {
                 // Navigate to the list Feedback fragment

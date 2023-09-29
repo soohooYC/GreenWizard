@@ -7,27 +7,15 @@
     tools:context=".fragments.update.UpdateNews">
 
     <TextView
-        android:id="@+id/newsView"
-        style="@style/newsInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:paddingBottom="5dp"
-        android:text="Update News"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/updateTitleV"
         style="@style/newsInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="56dp"
         android:text="Title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/updateTitle"
@@ -75,9 +63,12 @@
 
     <Button
         android:id="@+id/uImgbtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="114dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/btn_1"
         android:text="Update Image"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/updateImg" />
@@ -87,6 +78,8 @@
         android:layout_width="317dp"
         android:layout_height="45dp"
         android:text="Update"
+        android:background="@drawable/btn_1"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -98,8 +91,8 @@
         android:id="@+id/deleteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
         android:clickable="true"
         android:src="@drawable/baseline_delete_24"
         android:tint="@color/white"

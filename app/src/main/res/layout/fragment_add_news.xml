@@ -8,27 +8,15 @@
 
 
     <TextView
-        android:id="@+id/newsView"
-        style="@style/newsInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:paddingBottom="5dp"
-        android:text="ADD NEWS"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/titleview"
         style="@style/newsInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="52dp"
         android:text="Title"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newsView" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/editTitle"
@@ -79,6 +67,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add Image"
+        android:background="@drawable/btn_1"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
@@ -88,6 +78,8 @@
         android:layout_width="317dp"
         android:layout_height="45dp"
         android:text="Submit"
+        android:background="@drawable/btn_1"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"

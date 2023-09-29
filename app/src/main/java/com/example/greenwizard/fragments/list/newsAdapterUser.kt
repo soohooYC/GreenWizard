@@ -15,9 +15,10 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import com.bumptech.glide.Glide
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
+class newsAdapterUser : RecyclerView.Adapter<newsAdapterUser.MyViewHolder>() {
 
     private var newsList = emptyList<News>()
+
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val titleView: TextView = itemView.findViewById(R.id.titleView)
@@ -40,7 +41,6 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = newsList[position]
-//        holder.idView.text = currentItem.id.toString()
 
         if (!currentItem.imagePath.isNullOrEmpty()) {
             // Load the image using Glide
@@ -51,11 +51,12 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
             } catch (e: Exception) {
                 e.printStackTrace()
                 // Handle the exception (e.g., show a placeholder image or hide the ImageView)
-                holder.newsImgView.visibility = View.GONE // Hide the ImageView in case of an exception
+                holder.newsImgView.visibility = View.GONE// Hide the ImageView in case of an exception
             }
         }else{
             holder.newsImgView.visibility = View.GONE // Hide the ImageView if imagePath is null or empty
         }
+
 
 
         holder.titleView.text = currentItem.title
@@ -64,26 +65,16 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.MyViewHolder>() {
         val formattedDate = SimpleDateFormat("yyyy-MM-dd").format(Date(currentItem.date))
         holder.dateView.text = formattedDate
 
-
         holder.rowLayout.setOnClickListener{
-            val action = listNewsDirections.actionListNewsToUpdateNews(currentItem)
-            holder.itemView.findNavController().navigate(action)
+       val action = userNewsDirections.actionUserNewsToNewsDetail(currentItem)
+        holder.itemView.findNavController().navigate(action)
         }
+
 
     }
 
     fun setData(news: List<News>) {
         this.newsList = news
         notifyDataSetChanged()
-    }
-
-    // Truncate text to a specified number of words
-    private fun truncateText(text: String, maxWords: Int): String {
-        val words = text.split("\\s+".toRegex())
-        if (words.size > maxWords) {
-            val truncatedWords = words.subList(0, maxWords)
-            return truncatedWords.joinToString(" ") + "\n" + words.subList(maxWords, words.size).joinToString(" ")
-        }
-        return text
     }
 }

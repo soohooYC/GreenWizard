@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/addFeedback"
         android:name="com.example.greenwizard.fragments.add.addFeedback"
-        android:label="fragment_add_feedback"
+        android:label="Feedback"
         tools:layout="@layout/fragment_add_feedback" />
     <fragment
         android:id="@+id/locationSelectionFragment"
@@ -72,5 +72,26 @@
         <argument
             android:name="currentRecycle"
             app:argType="com.example.greenwizard.model.RecyclePoint" />
+    </fragment>
+    <fragment
+        android:id="@+id/userNews"
+        android:name="com.example.greenwizard.fragments.list.userNews"
+        android:label="News"
+        tools:layout="@layout/fragment_user_news" >
+        <action
+            android:id="@+id/action_userNews_to_newsDetail"
+            app:destination="@id/newsDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetail"
+        android:name="com.example.greenwizard.fragments.list.newsDetail"
+        android:label="News Details"
+        tools:layout="@layout/fragment_news_detail" >
+        <action
+            android:id="@+id/action_newsDetail_to_userNews"
+            app:destination="@id/userNews" />
+        <argument
+            android:name="currentDetails"
+            app:argType="com.example.greenwizard.model.News" />
     </fragment>
 </navigation>
