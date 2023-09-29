@@ -56,16 +56,8 @@ class UpdateRecycleUserFragment : Fragment() {
 
         // Load and display the existing image if available
         if (!args.currentRecycle.imagePath.isNullOrEmpty()) {
-            try {
-                selectedImageUri = Uri.parse(args.currentRecycle.imagePath)
-                Glide.with(this)
-                    .load(selectedImageUri)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(updateImg)
-            } catch (e: Exception) {
-                // Handle any exceptions related to accessing the URI
-                e.printStackTrace()
-            }
+            selectedImageUri = Uri.parse(args.currentRecycle.imagePath)
+            updateImg.setImageURI(selectedImageUri)
         }
 
         return view

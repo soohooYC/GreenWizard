@@ -17,8 +17,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.greenwizard.R
 import com.example.greenwizard.model.Report
 import com.example.greenwizard.viewmodel.LocationViewModel
@@ -63,19 +61,10 @@ class approved_reportFragment : Fragment() {
         updatedescription.setText(args.currentReport.description)
         updatetypeofWaste.setText(args.currentReport.typeofWaste)
 
-
         // Load and display the existing image if available
         if (!args.currentReport.imagePath.isNullOrEmpty()) {
-            try {
-                selectedImageUri = Uri.parse(args.currentReport.imagePath)
-                Glide.with(this)
-                    .load(selectedImageUri)
-                    .transition(DrawableTransitionOptions.withCrossFade())
-                    .into(updateImg)
-            } catch (e: Exception) {
-                // Handle any exceptions related to accessing the URI
-                e.printStackTrace()
-            }
+            selectedImageUri = Uri.parse(args.currentReport.imagePath)
+            updateImg.setImageURI(selectedImageUri)
         }
 
         deleteBtn.setOnClickListener {
@@ -86,22 +75,22 @@ class approved_reportFragment : Fragment() {
                 val description = updatedescription.text.toString()
                 val typeofWaste = updatetypeofWaste.text.toString()
 
-                    // Check if an image is selected
-                    val imagePath = updateImg?.toString() // Get the selected image URI as a string
-                    var Rstatus = "Decline"
-                    val updatedNews = Report(
-                        args.currentReport.id,
-                        location,
-                        description,
-                        typeofWaste,
-                        System.currentTimeMillis(),
-                        Rstatus,
-                        args.currentReport.imagePath
-                    )
-                    // Update data to ViewModel
-                    reportViewModel.updateReport(updatedNews)
+                // Check if an image is selected
+                val imagePath = updateImg?.toString() // Get the selected image URI as a string
+                var Rstatus = "Decline"
+                val updatedNews = Report(
+                    args.currentReport.id,
+                    location,
+                    description,
+                    typeofWaste,
+                    System.currentTimeMillis(),
+                    Rstatus,
+                    args.currentReport.imagePath
+                )
+                // Update data to ViewModel
+                reportViewModel.updateReport(updatedNews)
 
-                    Toast.makeText(
+                Toast.makeText(
                     requireContext(),
                     "Successfully Removed: ${args.currentReport.description}",
                     Toast.LENGTH_LONG
@@ -121,25 +110,25 @@ class approved_reportFragment : Fragment() {
             val description = updatedescription.text.toString()
             val typeofWaste = updatetypeofWaste.text.toString()
 
-                // Check if an image is selected
-                val imagePath = updateImg?.toString() // Get the selected image URI as a string
-                var Rstatus = "Approved"
-                val updatedNews = Report(
-                    args.currentReport.id,
-                    location,
-                    description,
-                    typeofWaste,
-                    System.currentTimeMillis(),
-                    Rstatus,
-                    args.currentReport.imagePath
-                )
-                // Update data to ViewModel
-                reportViewModel.updateReport(updatedNews)
-                Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
-                    .show()
-                // Navigate Back
+            // Check if an image is selected
+            val imagePath = updateImg?.toString() // Get the selected image URI as a string
+            var Rstatus = "Approved"
+            val updatedNews = Report(
+                args.currentReport.id,
+                location,
+                description,
+                typeofWaste,
+                System.currentTimeMillis(),
+                Rstatus,
+                args.currentReport.imagePath
+            )
+            // Update data to ViewModel
+            reportViewModel.updateReport(updatedNews)
+            Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
+                .show()
+            // Navigate Back
 
-                findNavController().navigate(R.id.action_approved_reportFragment_to_list_report_newFragment)
+            findNavController().navigate(R.id.action_approved_reportFragment_to_list_report_newFragment)
         }
 
         return view

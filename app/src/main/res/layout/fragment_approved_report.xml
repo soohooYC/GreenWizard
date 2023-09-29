@@ -15,27 +15,12 @@
             android:id="@+id/deleteBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="108dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="16dp"
             android:clickable="true"
             android:src="@drawable/baseline_delete_24"
             android:tint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/reportView"
-            style="@style/newsInput"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:paddingBottom="5dp"
-            android:text="@string/approvedreport"
-            android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -56,9 +41,11 @@
             android:id="@+id/updateStatusBtn"
             android:layout_width="317dp"
             android:layout_height="45dp"
+            android:layout_marginBottom="16dp"
             android:text="@string/approved"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.648"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -71,9 +58,7 @@
             app:layout_constraintBottom_toTopOf="@+id/editTextAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.518"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/reportView"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/typeofWasteView"
@@ -120,11 +105,10 @@
             android:id="@+id/updateImg"
             android:layout_width="318dp"
             android:layout_height="164dp"
-            android:layout_marginBottom="16dp"
             android:src="@android:drawable/ic_menu_gallery"
-            app:layout_constraintBottom_toTopOf="@+id/editdescription"
+            app:layout_constraintBottom_toTopOf="@+id/updateStatusBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.612"
+            app:layout_constraintHorizontal_bias="0.655"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView

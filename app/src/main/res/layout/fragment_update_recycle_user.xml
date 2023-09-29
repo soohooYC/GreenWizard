@@ -7,19 +7,6 @@
     tools:context=".fragments.update.UpdateReport">
 
 
-    <TextView
-        android:id="@+id/reportView"
-        style="@style/newsInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:paddingBottom="5dp"
-        android:text="@string/viewrecycle"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/updateImg"
         android:layout_width="318dp"
@@ -78,14 +65,13 @@
         style="@style/newsInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
         android:fontFamily="@font/alatsi"
         android:text="@string/recyclepointName"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportView" />
+        tools:layout_editor_absoluteY="99dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

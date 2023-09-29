@@ -96,7 +96,7 @@ class UpdateReport : Fragment() {
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
                 // Create news Object
                 val updatedNews = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),
-                     status,imagePath ?: "")
+                    status,imagePath ?: "")
                 // Update data to ViewModel
                 reportViewModel.updateReport(updatedNews)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()
@@ -135,21 +135,21 @@ class UpdateReport : Fragment() {
             if (inputCheck(description, typeofWaste)) {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
-                    var Rstatus = "Completed"
-                    val updatedNews = Report(
-                        args.currentReport.id,
-                        location,
-                        description,
-                        typeofWaste,
-                        System.currentTimeMillis(),
-                        Rstatus,
-                        imagePath ?: ""
-                    )
-                    // Update data to ViewModel
-                    reportViewModel.updateReport(updatedNews)
-                    Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
-                        .show()
-                 // Navigate Back
+                var Rstatus = "Completed"
+                val updatedNews = Report(
+                    args.currentReport.id,
+                    location,
+                    description,
+                    typeofWaste,
+                    System.currentTimeMillis(),
+                    Rstatus,
+                    imagePath ?: ""
+                )
+                // Update data to ViewModel
+                reportViewModel.updateReport(updatedNews)
+                Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
+                    .show()
+                // Navigate Back
 
                 findNavController().navigate(R.id.action_updateReport_to_listReport)
             } else {

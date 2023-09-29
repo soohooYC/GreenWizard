@@ -65,7 +65,7 @@
     <fragment
         android:id="@+id/updateRecycleUserFragment"
         android:name="com.example.greenwizard.fragments.update.UpdateRecycleUserFragment"
-        android:label="Update Recycle Point" >
+        android:label="View Recycle Point" >
         <action
             android:id="@+id/action_updateRecycleUserFragment_to_list_recycle_userFragment"
             app:destination="@id/list_recycle_userFragment" />
