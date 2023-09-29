@@ -99,7 +99,9 @@ class MainActivity : AppCompatActivity() , EasyPermissions.PermissionCallbacks  
             this,
             android.Manifest.permission.READ_MEDIA_AUDIO,
             android.Manifest.permission.READ_MEDIA_VIDEO,
-            android.Manifest.permission.READ_MEDIA_IMAGES
+            android.Manifest.permission.READ_MEDIA_IMAGES,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
     }
 
@@ -110,7 +112,9 @@ class MainActivity : AppCompatActivity() , EasyPermissions.PermissionCallbacks  
             PERMISSION_REQUEST_CODE,
             android.Manifest.permission.READ_MEDIA_IMAGES,
             android.Manifest.permission.READ_MEDIA_AUDIO,
-            android.Manifest.permission.READ_MEDIA_VIDEO
+            android.Manifest.permission.READ_MEDIA_VIDEO,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
         )
     }
 

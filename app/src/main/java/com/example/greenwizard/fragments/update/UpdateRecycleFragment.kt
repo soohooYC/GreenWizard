@@ -17,6 +17,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.greenwizard.R
 import com.example.greenwizard.model.RecyclePoint
 import com.example.greenwizard.viewmodel.LocationViewModel
@@ -58,8 +60,16 @@ class UpdateRecycleFragment : Fragment() {
 
         // Load and display the existing image if available
         if (!args.currentRecycle.imagePath.isNullOrEmpty()) {
-            selectedImageUri = Uri.parse(args.currentRecycle.imagePath)
-            updateImg.setImageURI(selectedImageUri)
+            try {
+                selectedImageUri = Uri.parse(args.currentRecycle.imagePath)
+                Glide.with(this)
+                    .load(selectedImageUri)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(updateImg)
+            } catch (e: Exception) {
+                // Handle any exceptions related to accessing the URI
+                e.printStackTrace()
+            }
         }
 
         // Register for result when an image is picked
@@ -67,7 +77,10 @@ class UpdateRecycleFragment : Fragment() {
             if (uri != null) {
                 // Set the selected image URI and display it in the ImageView
                 selectedImageUri = uri
-                updateImg.setImageURI(uri)
+                Glide.with(this)
+                    .load(uri)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(updateImg)
             }
         }
 

@@ -17,6 +17,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.greenwizard.R
 import com.example.greenwizard.model.Report
 import com.example.greenwizard.viewmodel.LocationViewModel
@@ -61,10 +63,19 @@ class approved_reportFragment : Fragment() {
         updatedescription.setText(args.currentReport.description)
         updatetypeofWaste.setText(args.currentReport.typeofWaste)
 
+
         // Load and display the existing image if available
         if (!args.currentReport.imagePath.isNullOrEmpty()) {
-            selectedImageUri = Uri.parse(args.currentReport.imagePath)
-            updateImg.setImageURI(selectedImageUri)
+            try {
+                selectedImageUri = Uri.parse(args.currentReport.imagePath)
+                Glide.with(this)
+                    .load(selectedImageUri)
+                    .transition(DrawableTransitionOptions.withCrossFade())
+                    .into(updateImg)
+            } catch (e: Exception) {
+                // Handle any exceptions related to accessing the URI
+                e.printStackTrace()
+            }
         }
 
         deleteBtn.setOnClickListener {

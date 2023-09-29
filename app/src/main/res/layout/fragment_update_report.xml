@@ -55,35 +55,37 @@
             android:id="@+id/updateBtn"
             android:layout_width="317dp"
             android:layout_height="45dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="4dp"
             android:text="@string/update"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.47"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/uImgbtn" />
 
-    <Button
-        android:id="@+id/updateStatusBtn"
-        android:layout_width="317dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="28dp"
-        android:text="@string/completed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/updateStatusBtn"
+            android:layout_width="317dp"
+            android:layout_height="45dp"
+            android:layout_marginBottom="4dp"
+            android:text="@string/completed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.488"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/AddressView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="3dp"
-        android:text="@string/Address"
-        app:layout_constraintBottom_toTopOf="@+id/editTextAddress"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/reportView"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/AddressView"
+            style="@style/newsInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:text="@string/Address"
+            app:layout_constraintBottom_toTopOf="@+id/editTextAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reportView"
+            app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/typeofWasteView"
