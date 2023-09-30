@@ -6,103 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".fragments.add.addReport">
 
-    <EditText
-        android:id="@+id/editdescription"
-        android:layout_width="319dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="20dp"
-        android:ems="10"
-        android:hint="@string/adddescription"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/typeofWasteView"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="318dp"
+        android:layout_height="164dp"
+        android:layout_marginBottom="8dp"
+        android:src="@android:drawable/ic_menu_gallery"
+        app:layout_constraintBottom_toTopOf="@+id/ImgBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.532"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edittypeofWaste"
-        android:layout_width="319dp"
-        android:layout_height="68dp"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:hint="@string/addtypeofwaste"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/imageView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="44dp"
+        android:layout_marginBottom="4dp"
         android:ems="10"
         android:hint="@string/addaddress"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/descView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.507"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/typeofWasteView"
-        style="@style/newsInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:paddingBottom="5dp"
-        android:text="@string/typeofwaste"
-        app:layout_constraintBottom_toTopOf="@+id/edittypeofWaste"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/ImgBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:text="@string/addimage"
-        app:layout_constraintBottom_toTopOf="@+id/addBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/descView"
-        style="@style/newsInput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:fontFamily="@font/alatsi"
-        android:text="@string/description"
-        android:textSize="28sp"
-        app:layout_constraintBottom_toTopOf="@+id/editdescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/addBtn"
-        android:layout_width="317dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="44dp"
-        android:text="@string/submit"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.585"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="318dp"
-        android:layout_height="164dp"
-        android:layout_marginBottom="12dp"
-        android:src="@android:drawable/ic_menu_gallery"
-        app:layout_constraintBottom_toTopOf="@+id/ImgBtn"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -110,10 +35,85 @@
         style="@style/newsInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:text="@string/Address"
+        app:layout_constraintBottom_toTopOf="@+id/editTextAddress"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editdescription"
+        android:layout_width="319dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="@string/adddescription"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/typeofWasteView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/descView"
+        style="@style/newsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/alatsi"
+        android:text="@string/description"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/editdescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/typeofWasteView"
+        style="@style/newsInput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:paddingBottom="5dp"
+        android:text="@string/typeofwaste"
+        app:layout_constraintBottom_toTopOf="@+id/edittypeofWaste"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edittypeofWaste"
+        android:layout_width="319dp"
+        android:layout_height="68dp"
+        android:layout_marginBottom="12dp"
+        android:ems="10"
+        android:hint="@string/addtypeofwaste"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/ImgBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="@string/addimage"
+        app:layout_constraintBottom_toTopOf="@+id/addBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/addBtn"
+        android:layout_width="317dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
