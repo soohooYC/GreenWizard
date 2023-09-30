@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -64,6 +65,10 @@ class EditProfileFragment : Fragment() {
                 // Show a toast message indicating that changes are saved
                 Toast.makeText(requireContext(), "Changes saved", Toast.LENGTH_SHORT).show()
 
+                if(isPasswordChanged()){
+                    Toast.makeText(requireContext(), "Password Changed, please login again.", Toast.LENGTH_SHORT).show()
+                }
+
                 // Navigate back to the previous fragment (ProfileFragment)
                 findNavController().navigateUp()
             } else {
@@ -84,6 +89,7 @@ class EditProfileFragment : Fragment() {
                 child("email").setValue(editEmail.text.toString())
                 child("phone").setValue(editPhone.text.toString())
                 child("password").setValue(editPassword.text.toString())
+                child("profilePassword").setValue(editPassword.text.toString())
             }
         }
     }
@@ -93,13 +99,10 @@ class EditProfileFragment : Fragment() {
         return newName != usernameUser
     }
 
-//    private fun isEmailChanged(): Boolean {
-//        val newEmail = editEmail.text.toString()
-//        return newEmail != emailUser
-//    }
-
     private fun isPasswordChanged(): Boolean {
         val newPassword = editPassword.text.toString()
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
         val passwordPattern = "^(?=.*[a-zA-Z])(?=.*\\d)(?=.*[@\$!%*?&#])[A-Za-z\\d@\$!%*?&#]{8,}\$".toRegex()
 
         if (!passwordPattern.matches(newPassword)) {
@@ -107,6 +110,29 @@ class EditProfileFragment : Fragment() {
             Toast.makeText(requireContext(), "Password must be at least 8 characters long and contain at least one letter, one digit, and one special character.", Toast.LENGTH_SHORT).show()
             return false
         } else if (newPassword != passwordUser) {
+            user?.updatePassword(newPassword)
+                ?.addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // Password is updated successfully
+                        Toast.makeText(
+                            requireContext(),
+                            "Password updated successfully",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        Toast.makeText(
+                            requireContext(),
+                            "Please Login again",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        // Password update failed
+                        Toast.makeText(
+                            requireContext(),
+                            "Failed to update password: ${task.exception?.message}",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
             return true // Password is valid and changed
         }
 
