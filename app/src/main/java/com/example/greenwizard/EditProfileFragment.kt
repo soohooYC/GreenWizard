@@ -51,11 +51,13 @@ class EditProfileFragment : Fragment() {
         // Populate EditText fields with user data
         editUsername.setText(usernameUser)
         editEmail.setText(emailUser)
+        editEmail.isFocusable = false
+        editEmail.isClickable = false
         editPhone.setText(phoneUser)
         editPassword.setText(passwordUser)
 
         saveButton.setOnClickListener {
-            if (isNameChanged() || isPasswordChanged() || isPhoneChanged() || isEmailChanged()) {
+            if (isNameChanged() || isPasswordChanged() || isPhoneChanged() ) {
                 // Save changes to Firebase Realtime Database
                 saveUserDataToDatabase()
 
@@ -91,10 +93,10 @@ class EditProfileFragment : Fragment() {
         return newName != usernameUser
     }
 
-    private fun isEmailChanged(): Boolean {
-        val newEmail = editEmail.text.toString()
-        return newEmail != emailUser
-    }
+//    private fun isEmailChanged(): Boolean {
+//        val newEmail = editEmail.text.toString()
+//        return newEmail != emailUser
+//    }
 
     private fun isPasswordChanged(): Boolean {
         val newPassword = editPassword.text.toString()
