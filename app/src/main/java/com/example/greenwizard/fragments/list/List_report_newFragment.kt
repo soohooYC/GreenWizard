@@ -31,7 +31,6 @@ class list_report_newFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // NewsViewModel
         mLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
         mLocationViewModel.readNewReportData.observe(viewLifecycleOwner, Observer { reportList ->
             adapter.setData(reportList)

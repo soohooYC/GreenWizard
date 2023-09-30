@@ -29,7 +29,7 @@ class list_recycle_userFragment : Fragment() {
         recyclerView.adapter = adapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        // NewsViewModel
+
         mLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
         mLocationViewModel.readAllRecycleData.observe(viewLifecycleOwner, Observer { recycleList ->
             adapter.setData(recycleList)

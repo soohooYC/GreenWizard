@@ -41,14 +41,12 @@
             android:id="@+id/updateBtn"
             android:layout_width="317dp"
             android:layout_height="45dp"
-            android:layout_marginTop="4dp"
             android:layout_marginBottom="2dp"
             android:text="@string/update"
             app:layout_constraintBottom_toTopOf="@+id/updateStatusBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.47"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/uImgbtn" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/updateStatusBtn"
@@ -114,12 +112,12 @@
             android:id="@+id/uImgbtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="51dp"
             android:text="@string/addimage"
+            app:layout_constraintBottom_toTopOf="@+id/updateStatusBtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/updateImg" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageView
             android:id="@+id/updateImg"

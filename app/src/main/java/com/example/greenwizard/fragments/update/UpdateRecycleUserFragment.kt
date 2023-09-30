@@ -43,7 +43,7 @@ class UpdateRecycleUserFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_update_recycle_user, container, false)
 
-        // Initialize mNewsViewModel
+        // Initialize mRecycleViewModel
         mRecycleViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
         val updateaddress = view.findViewById<EditText>(R.id.editTextAddress)

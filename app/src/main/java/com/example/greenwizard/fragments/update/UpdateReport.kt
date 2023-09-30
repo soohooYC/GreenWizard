@@ -44,7 +44,7 @@ class UpdateReport : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_update_report, container, false)
 
-        // Initialize mNewsViewModel
+        // Initialize mReportViewModel
         mReportViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
         val updateaddress = view.findViewById<EditText>(R.id.editTextAddress)
@@ -52,6 +52,7 @@ class UpdateReport : Fragment() {
         val updatetypeofWaste = view.findViewById<EditText>(R.id.edittypeofWaste)
         val updateBtn = view.findViewById<Button>(R.id.updateBtn)
         updateImg = view.findViewById(R.id.updateImg) // Initialize your ImageView
+        val uImgbtn = view.findViewById<Button>(R.id.uImgbtn)
         val deleteBtn = view.findViewById<FloatingActionButton>(R.id.deleteBtn)
         val updateStatusBtn = view.findViewById<Button>(R.id.updateStatusBtn)
 
@@ -85,6 +86,14 @@ class UpdateReport : Fragment() {
             updateStatusBtn.visibility = View.GONE
         }
 
+        if(args.currentReport.status.equals("Approved")){
+            updateaddress.isEnabled = false
+            updatedescription.isEnabled = false
+            updatetypeofWaste.isEnabled = false
+            updateBtn.visibility = View.GONE
+            uImgbtn.visibility = View.GONE
+        }
+
         updateBtn.setOnClickListener() {
 
             val location = updateaddress.text.toString()
@@ -94,11 +103,11 @@ class UpdateReport : Fragment() {
             if (inputCheck(description, typeofWaste)) {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
-                // Create news Object
-                val updatedNews = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),
+                // Create Reports Object
+                val updatedReports = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),
                     status,imagePath ?: "")
                 // Update data to ViewModel
-                reportViewModel.updateReport(updatedNews)
+                reportViewModel.updateReport(updatedReports)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()
                 // Navigate Back
                 findNavController().navigate(R.id.action_updateReport_to_listReport)
@@ -110,7 +119,7 @@ class UpdateReport : Fragment() {
         deleteBtn.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setPositiveButton("Yes") { _, _ ->
-                // Use your ViewModel to delete the news using the existing args
+                // Use your ViewModel to delete the Reports using the existing args
                 mReportViewModel.deleteReport(args.currentReport)
                 Toast.makeText(
                     requireContext(),
@@ -136,7 +145,7 @@ class UpdateReport : Fragment() {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
                 var Rstatus = "Completed"
-                val updatedNews = Report(
+                val updatedReports = Report(
                     args.currentReport.id,
                     location,
                     description,
@@ -146,7 +155,7 @@ class UpdateReport : Fragment() {
                     imagePath ?: ""
                 )
                 // Update data to ViewModel
-                reportViewModel.updateReport(updatedNews)
+                reportViewModel.updateReport(updatedReports)
                 Toast.makeText(requireContext(), "Successfully update status to Approved", Toast.LENGTH_LONG)
                     .show()
                 // Navigate Back

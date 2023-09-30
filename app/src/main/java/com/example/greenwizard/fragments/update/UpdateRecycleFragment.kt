@@ -43,7 +43,7 @@ class UpdateRecycleFragment : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_update_recycle, container, false)
 
-        // Initialize mNewsViewModel
+        // Initialize mRecycleViewModel
         mRecycleViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
 
         val updateaddress = view.findViewById<EditText>(R.id.editTextAddress)
@@ -85,10 +85,10 @@ class UpdateRecycleFragment : Fragment() {
             if (inputCheck(location, description)) {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
-                // Create news Object
-                val updatedNews = RecyclePoint(args.currentRecycle.id, location, description, imagePath ?: "")
+                // Create recycle Object
+                val updatedRecycle = RecyclePoint(args.currentRecycle.id, location, description, imagePath ?: "")
                 // Update data to ViewModel
-                recycleViewModel.updateRecycle(updatedNews)
+                recycleViewModel.updateRecycle(updatedRecycle)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()
                 // Navigate Back
                 findNavController().navigate(R.id.action_updateRecycleFragment_to_listRecycle)
@@ -100,7 +100,7 @@ class UpdateRecycleFragment : Fragment() {
         deleteBtn.setOnClickListener {
             val builder = AlertDialog.Builder(requireContext())
             builder.setPositiveButton("Yes") { _, _ ->
-                // Use your ViewModel to delete the news using the existing args
+                // Use your ViewModel to delete the recycle using the existing args
                 mRecycleViewModel.deleteRecycle(args.currentRecycle)
                 Toast.makeText(
                     requireContext(),
