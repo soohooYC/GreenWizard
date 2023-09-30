@@ -94,10 +94,10 @@ class SignUpActivity : AppCompatActivity() {
             return
         }
 
-        // Create a new user with email and password
+        // Attempt to create a new user with email and password
         auth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
+            .addOnCompleteListener(this) { signUpTask ->
+                if (signUpTask.isSuccessful) {
                     // Sign-up success, add user data to Firebase Realtime Database
                     val user = auth.currentUser
                     val uid = user?.uid
@@ -115,8 +115,13 @@ class SignUpActivity : AppCompatActivity() {
 
                     Toast.makeText(this, "Sign-up successful!", Toast.LENGTH_SHORT).show()
                 } else {
-                    // Sign-up failed
-                    Toast.makeText(this, "Sign-up failed. Please try again later.", Toast.LENGTH_SHORT).show()
+                    // Check if the email is already in use
+                    if (signUpTask.exception?.message?.contains("email address is already in use") == true) {
+                        Toast.makeText(this, "Email address is already in use. Please use a different email.", Toast.LENGTH_SHORT).show()
+                    } else {
+                        // Sign-up failed for other reasons
+                        Toast.makeText(this, "Sign-up failed. Please try again later.", Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
     }
