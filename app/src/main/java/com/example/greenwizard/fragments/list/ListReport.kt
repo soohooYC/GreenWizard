@@ -60,7 +60,7 @@ class listReport : Fragment() {
                             adapter.setData(reportList)
                         })
 
-                    Toast.makeText(requireContext(), "New Report $clickCount", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "New Report", Toast.LENGTH_SHORT).show()
                 }
                 2 -> {
                     mLocationViewModel.readApprovedReportData.observe(
@@ -69,7 +69,7 @@ class listReport : Fragment() {
                             adapter.setData(reportList)
                         })
 
-                    Toast.makeText(requireContext(), "Approved Report $clickCount", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Approved Report", Toast.LENGTH_SHORT).show()
                 }
                 3 -> {
                     mLocationViewModel.readCompletedReportData.observe(
@@ -78,14 +78,14 @@ class listReport : Fragment() {
                             adapter.setData(reportList)
                         })
 
-                    Toast.makeText(requireContext(), "Completed Report $clickCount", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Completed Report", Toast.LENGTH_SHORT).show()
                 }
                 else -> {
                     mLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
                     mLocationViewModel.readAllData.observe(viewLifecycleOwner, Observer { reportList ->
                         adapter.setData(reportList)
                     })
-                    Toast.makeText(requireContext(), "All Report $clickCount", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "All Report", Toast.LENGTH_SHORT).show()
 
                     clickCount = 0 // Reset clickCount to 0
                 }
