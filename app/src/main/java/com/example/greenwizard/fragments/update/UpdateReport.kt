@@ -103,7 +103,7 @@ class UpdateReport : Fragment() {
                 // Navigate Back
                 findNavController().navigate(R.id.action_updateReport_to_listReport)
             } else {
-                Toast.makeText(requireContext(), "Please Fill Out All Fields", Toast.LENGTH_LONG).show()
+                Toast.makeText(requireContext(), "Please Fill Out All Fields And Ensure Description Fields Not Over 20 Words", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -161,6 +161,11 @@ class UpdateReport : Fragment() {
     }
 
     private fun inputCheck(description: String, typeofWaste: String): Boolean {
-        return !(TextUtils.isEmpty(description) || TextUtils.isEmpty(typeofWaste))
+        fun isNotEmpty(str: String) = str.isNotBlank()
+        fun wordCount(str: String) = str.split("\\s+".toRegex()).size
+
+        return isNotEmpty(description) &&
+                isNotEmpty(typeofWaste) &&
+                wordCount(description) <= 20
     }
 }
