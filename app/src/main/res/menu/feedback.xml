@@ -10,4 +10,7 @@
     <item
         android:id="@+id/Permission"
         android:title="Permission" />
+    <item
+        android:id="@+id/Logout"
+        android:title="Logout" />
 </menu>

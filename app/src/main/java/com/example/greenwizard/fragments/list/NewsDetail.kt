@@ -20,8 +20,6 @@ class newsDetail : Fragment() {
     private lateinit var uNewsViewModel: NewsViewModel
 
     private val args by navArgs<newsDetailArgs>()
-    // Initialize ViewModel
-    private val newsViewModel: NewsViewModel by viewModels()
 
     // Initialize ImageView for displaying the selected image
     private lateinit var imgDetail: ImageView
@@ -49,13 +47,8 @@ class newsDetail : Fragment() {
 
         // Load and display the existing image if available
         if (!args.currentDetails.imagePath.isNullOrEmpty()) {
-            try {
-                selectedImageUri = Uri.parse(args.currentDetails.imagePath)
-                imgDetail.setImageURI(selectedImageUri)
-            } catch (e: Exception) {
-                // Handle any exceptions related to accessing the URI
-                e.printStackTrace()
-            }
+            selectedImageUri = Uri.parse(args.currentDetails.imagePath)
+            imgDetail.setImageURI(selectedImageUri)
         }
 
 

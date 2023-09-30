@@ -27,7 +27,6 @@ class LocationSelectionAdminragment : Fragment() {
 
         val rabutton = view.findViewById<Button>(R.id.reportadmin)
         val rpabutton = view.findViewById<Button>(R.id.recycle_Pointadmin)
-        val logoutButton = view.findViewById<Button>(R.id.logoutButton)
 
         rabutton.setOnClickListener {
             view.findNavController().navigate(R.id.action_locationSelectionAdminragment_to_list_report_newFragment)
@@ -36,17 +35,6 @@ class LocationSelectionAdminragment : Fragment() {
             view.findNavController().navigate(R.id.action_locationSelectionAdminragment_to_listRecycle)
         }
 
-        logoutButton.setOnClickListener{
-            // Sign out the user from Firebase Authentication
-            auth.signOut()
-
-            // Create an Intent to navigate to the LoginActivity
-            val intent = Intent(requireContext(), LoginActivity::class.java)
-
-            // Start the LoginActivity
-            startActivity(intent)
-
-        }
 
 
         return view

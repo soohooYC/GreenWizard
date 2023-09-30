@@ -29,6 +29,7 @@
             android:maxLines="2"
             android:text="Title Text Goes Here"
             android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold|italic" />
 

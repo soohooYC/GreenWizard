@@ -11,9 +11,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.content.Intent
 import com.vmadalin.easypermissions.EasyPermissions
 import com.vmadalin.easypermissions.dialogs.SettingsDialog
+import com.google.firebase.auth.FirebaseAuth
+
 
 class MainActivity : AppCompatActivity() , EasyPermissions.PermissionCallbacks  {
     private lateinit var menu: Menu
+
+    private lateinit var auth: FirebaseAuth
     companion object{
         const val PERMISSION_REQUEST_CODE = 1
     }
@@ -72,6 +76,18 @@ class MainActivity : AppCompatActivity() , EasyPermissions.PermissionCallbacks  
                 requestPermission() // Call the requestPermission function here
                 return true
             }
+            R.id.Logout -> {
+                // Sign out the user from Firebase Authentication
+                auth.signOut()
+
+                // Create an Intent to navigate to the LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+
+                // Start the LoginActivity
+                startActivity(intent)
+                return true
+            }
+
             // Add more cases for other menu items if needed
             else -> return super.onOptionsItemSelected(item)
         }

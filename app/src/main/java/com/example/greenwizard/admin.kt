@@ -6,22 +6,19 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import android.view.inputmethod.InputMethodManager
 import android.content.Context
-import android.content.pm.PackageManager
 import android.view.MotionEvent
-import androidx.activity.result.ActivityResultLauncher
-import androidx.core.content.ContextCompat
-import android.Manifest
 import android.content.Intent
-import androidx.activity.result.contract.ActivityResultContracts
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Button
 
-class admin: AppCompatActivity() {
-    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
-    private var isReadPermissionGranted = false
-    private var isWritePermissionGranted = false
+import com.vmadalin.easypermissions.EasyPermissions
+import com.vmadalin.easypermissions.dialogs.SettingsDialog
+import com.google.firebase.auth.FirebaseAuth
+
+class admin: AppCompatActivity() , EasyPermissions.PermissionCallbacks{
+    private lateinit var menu: Menu
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,14 +27,6 @@ class admin: AppCompatActivity() {
         val navController = this.findNavController(R.id.adminnavHost)
         NavigationUI.setupActionBarWithNavController(this, navController)
 
-        permissionLauncher =
-            registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { permissions ->
-                isReadPermissionGranted =
-                    permissions[Manifest.permission.READ_EXTERNAL_STORAGE] ?: isReadPermissionGranted
-                isWritePermissionGranted =
-                    permissions[Manifest.permission.WRITE_EXTERNAL_STORAGE] ?: isWritePermissionGranted
-            }
-        requestPermission()
 
         //Bottom Nav
         val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavView)
@@ -81,6 +70,7 @@ class admin: AppCompatActivity() {
     //Option Menu
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.feedback, menu)
+        this.menu = menu // Assign the menu to the class-level variable
         return true
     }
 
@@ -92,28 +82,75 @@ class admin: AppCompatActivity() {
                 navController.navigate(R.id.listFeedback)
                 return true
             }
+            R.id.Permission -> {
+                requestPermission() // Call the requestPermission function here
+                return true
+            }
+            R.id.Logout -> {
+                // Sign out the user from Firebase Authentication
+                auth.signOut()
+
+                // Create an Intent to navigate to the LoginActivity
+                val intent = Intent(this, LoginActivity::class.java)
+
+                // Start the LoginActivity
+                startActivity(intent)
+                return true
+            }
+
             // Add more cases for other menu items if needed
             else -> return super.onOptionsItemSelected(item)
         }
     }
 
-    private fun requestPermission() {
-        isReadPermissionGranted = ContextCompat.checkSelfPermission(
+    override fun onPermissionsDenied(requestCode: Int, perms: List<String>) {
+        if (EasyPermissions.somePermissionPermanentlyDenied(this, perms)) {
+            SettingsDialog.Builder(this).build().show()
+            val permissionMenuItem = menu.findItem(R.id.Permission)
+            permissionMenuItem.isVisible = true
+        } else {
+            requestPermission()
+        }
+    }
+
+    override fun onPermissionsGranted(requestCode: Int, perms: List<String>) {
+        // Permission granted, hide the "Permission" menu item
+        val permissionMenuItem = menu.findItem(R.id.Permission)
+        permissionMenuItem.isVisible = false
+    }
+
+
+
+    private fun hasPermission(){
+        EasyPermissions.hasPermissions(
             this,
-            Manifest.permission.READ_EXTERNAL_STORAGE
-        ) == PackageManager.PERMISSION_GRANTED
+            android.Manifest.permission.READ_MEDIA_AUDIO,
+            android.Manifest.permission.READ_MEDIA_VIDEO,
+            android.Manifest.permission.READ_MEDIA_IMAGES,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+    }
 
-        val permissionRequest: MutableList<String> = ArrayList()
+    private fun requestPermission() {
+        EasyPermissions.requestPermissions(
+            this,
+            "These permission are required for this application",
+            MainActivity.PERMISSION_REQUEST_CODE,
+            android.Manifest.permission.READ_MEDIA_IMAGES,
+            android.Manifest.permission.READ_MEDIA_AUDIO,
+            android.Manifest.permission.READ_MEDIA_VIDEO,
+            android.Manifest.permission.READ_EXTERNAL_STORAGE,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+        )
+    }
 
-        if (!isReadPermissionGranted) {
-            permissionRequest.add(Manifest.permission.READ_EXTERNAL_STORAGE)
-        }
-        if (!isWritePermissionGranted) {
-            permissionRequest.add(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        }
-
-        if (permissionRequest.isNotEmpty()) {
-            permissionLauncher.launch(permissionRequest.toTypedArray())
-        }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        EasyPermissions.onRequestPermissionsResult(requestCode,permissions, grantResults, this)
     }
 }
