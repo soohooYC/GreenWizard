@@ -49,6 +49,9 @@ class newsDetail : Fragment() {
         if (!args.currentDetails.imagePath.isNullOrEmpty()) {
             selectedImageUri = Uri.parse(args.currentDetails.imagePath)
             imgDetail.setImageURI(selectedImageUri)
+        }else {
+            // If imagePath is empty or null, hide the ImageView
+            imgDetail.visibility = View.GONE
         }
 
 
