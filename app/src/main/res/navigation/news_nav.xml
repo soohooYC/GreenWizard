@@ -81,7 +81,7 @@
     <fragment
         android:id="@+id/approved_reportFragment"
         android:name="com.example.greenwizard.fragments.update.approved_reportFragment"
-        android:label="Approved Report" >
+        android:label="Approved Illegal Dump Report" >
         <action
             android:id="@+id/action_approved_reportFragment_to_list_report_newFragment"
             app:destination="@id/list_report_newFragment" />
@@ -92,7 +92,7 @@
     <fragment
         android:id="@+id/list_report_newFragment"
         android:name="com.example.greenwizard.fragments.list.list_report_newFragment"
-        android:label="List Report Admin" >
+        android:label="List Illegal Dump Report" >
         <action
             android:id="@+id/action_list_report_newFragment_to_approved_reportFragment"
             app:destination="@id/approved_reportFragment" />
