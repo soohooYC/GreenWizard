@@ -92,7 +92,7 @@ class approved_reportFragment : Fragment() {
 
                 Toast.makeText(
                     requireContext(),
-                    "Successfully Removed: ${args.currentReport.description}",
+                    "Successfully Decline: ${args.currentReport.description}",
                     Toast.LENGTH_LONG
                 ).show()
                 findNavController().navigate(R.id.action_approved_reportFragment_to_list_report_newFragment)

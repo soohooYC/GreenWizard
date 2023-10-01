@@ -86,7 +86,7 @@ class UpdateReport : Fragment() {
             updateStatusBtn.visibility = View.GONE
         }
 
-        if(args.currentReport.status.equals("Approved")){
+        if(args.currentReport.status.equals("Approved")||args.currentReport.status.equals("Completed")){
             updateaddress.isEnabled = false
             updatedescription.isEnabled = false
             updatetypeofWaste.isEnabled = false
