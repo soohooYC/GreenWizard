@@ -79,14 +79,14 @@ class UpdateRecycleFragment : Fragment() {
 
         updateBtn.setOnClickListener() {
 
-            val location = updateaddress.text.toString()
-            val description = updatename.text.toString()
+            val address = updateaddress.text.toString()
+            val name = updatename.text.toString()
 
-            if (inputCheck(location, description)) {
+            if (inputCheck(address, name)) {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
                 // Create recycle Object
-                val updatedRecycle = RecyclePoint(args.currentRecycle.id, location, description, imagePath ?: "")
+                val updatedRecycle = RecyclePoint(args.currentRecycle.id, name,address, imagePath ?: "")
                 // Update data to ViewModel
                 recycleViewModel.updateRecycle(updatedRecycle)
                 Toast.makeText(requireContext(), "Successfully Updated", Toast.LENGTH_LONG).show()

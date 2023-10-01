@@ -96,7 +96,7 @@ class UpdateReport : Fragment() {
 
         updateBtn.setOnClickListener() {
 
-            val location = updateaddress.text.toString()
+            val address = updateaddress.text.toString()
             val description = updatedescription.text.toString()
             val typeofWaste = updatetypeofWaste.text.toString()
             val status = args.currentReport.status.toString()
@@ -104,7 +104,7 @@ class UpdateReport : Fragment() {
                 // Check if an image is selected
                 val imagePath = selectedImageUri?.toString() // Get the selected image URI as a string
                 // Create Reports Object
-                val updatedReports = Report(args.currentReport.id, location, description, typeofWaste, System.currentTimeMillis(),
+                val updatedReports = Report(args.currentReport.id, address, description, typeofWaste, System.currentTimeMillis(),
                     status,imagePath ?: "")
                 // Update data to ViewModel
                 reportViewModel.updateReport(updatedReports)
