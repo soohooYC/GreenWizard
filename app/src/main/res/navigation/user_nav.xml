@@ -13,7 +13,7 @@
     <fragment
         android:id="@+id/locationSelectionFragment"
         android:name="com.example.greenwizard.LocationSelectionFragment"
-        android:label="Module Selection" >
+        android:label="GreenWizard" >
         <action
             android:id="@+id/action_locationSelectionFragment_to_listReport"
             app:destination="@id/listReport" />
