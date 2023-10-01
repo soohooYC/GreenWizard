@@ -20,6 +20,7 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
     val readNewReportData: LiveData<List<Report>>
     val readApprovedReportData: LiveData<List<Report>>
     val readCompletedReportData: LiveData<List<Report>>
+    val readDeclineReportData: LiveData<List<Report>>
     val readAllRecycleData: LiveData<List<RecyclePoint>> // Change visibility to public
 
     private val repository: LocationRepository
@@ -32,6 +33,7 @@ class LocationViewModel(application: Application) : AndroidViewModel(application
         readNewReportData = repository.readNewReportData
         readApprovedReportData = repository.readApprovedReportData
         readCompletedReportData = repository.readCompletedReportData
+        readDeclineReportData = repository.readDeclineReportData
     }
 
     //Illegal Dump Report

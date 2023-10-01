@@ -35,6 +35,9 @@ interface LocationDao {
     @Query(value = "SELECT * FROM report_table WHERE status = 'Completed' ORDER BY id ASC")
     fun readCompletedReportData(): LiveData<List<Report>>
 
+    @Query(value = "SELECT * FROM report_table WHERE status = 'Decline' ORDER BY id ASC")
+    fun readDeclineReportData(): LiveData<List<Report>>
+
     //RecyclePoint
     @Insert (onConflict = OnConflictStrategy.IGNORE)
     suspend fun addRecycle(recyclePoint: RecyclePoint)

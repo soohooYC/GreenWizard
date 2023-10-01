@@ -79,6 +79,15 @@ class listReport : Fragment() {
 
                     Toast.makeText(requireContext(), "Completed Report", Toast.LENGTH_SHORT).show()
                 }
+            4 -> {
+                mLocationViewModel.readDeclineReportData.observe(
+                    viewLifecycleOwner,
+                    Observer { reportList ->
+                        adapter.setData(reportList)
+                    })
+
+                Toast.makeText(requireContext(), "Decline Report", Toast.LENGTH_SHORT).show()
+            }
                 else -> {
                     mLocationViewModel = ViewModelProvider(this).get(LocationViewModel::class.java)
                     mLocationViewModel.readAllData.observe(viewLifecycleOwner, Observer { reportList ->

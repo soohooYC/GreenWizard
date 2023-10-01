@@ -13,6 +13,8 @@ class LocationRepository (private val LocationDao: LocationDao){
     val readNewReportData: LiveData<List<Report>> = LocationDao.readNewReportData()
     val readApprovedReportData: LiveData<List<Report>> = LocationDao.readApprovedReportData()
     val readCompletedReportData: LiveData<List<Report>> = LocationDao.readCompletedReportData()
+    val readDeclineReportData: LiveData<List<Report>> = LocationDao.readDeclineReportData()
+
 
     val readAllRecycleData: LiveData<List<RecyclePoint>> = LocationDao.readAllRecycleData()
 
