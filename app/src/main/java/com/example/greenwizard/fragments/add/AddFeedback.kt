@@ -59,6 +59,9 @@ class addFeedback : Fragment() {
                 feedbackViewModel.addFeedback(feedback)
                 Toast.makeText(requireContext(), "Successfully Added", Toast.LENGTH_LONG).show()
 
+                //navigate back
+                findNavController().navigateUp()
+
             } else {
                 Toast.makeText(requireContext(), "Please enter a valid rating and comment.", Toast.LENGTH_SHORT).show()
             }
