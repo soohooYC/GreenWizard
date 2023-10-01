@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/wallpapergreen"
     tools:context=".fragments.add.addFeedback">
 
     <RatingBar
@@ -12,13 +13,14 @@
         android:layout_height="wrap_content"
         android:progressBackgroundTint="@color/black"
         android:progressTint="#E8D31D"
-        android:stepSize="1"
         android:rating="3"
+        android:stepSize="1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.33" />
+        app:layout_constraintVertical_bias="0.326" />
 
     <TextView
         android:id="@+id/ratingView"
@@ -36,7 +38,7 @@
         android:id="@+id/editComment"
         android:layout_width="319dp"
         android:layout_height="133dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/edittext_border"
         android:ems="10"
         android:hint="Pls write your comment here...."
@@ -54,6 +56,21 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/btn_1"
+        android:textColor="@color/white"
         app:layout_constraintTop_toBottomOf="@+id/editComment" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="We Appreciated Your Feedback"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/ratingBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
