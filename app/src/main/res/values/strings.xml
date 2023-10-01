@@ -8,14 +8,14 @@
     <string name="title_notifications">Notifications</string>
 
     <string name="choose">Choose either Illegal Dump Report or Recycle Point</string>
-    <string name="report">Report</string>
+    <string name="report">Illegal Dump Report</string>
     <string name="recycle_Point">Recycle Point</string>
 
     <!--    Recycle point-->
     <string name="addrecyclepointname">Enter the name of recycle point</string>
     <string name="recyclepointName">Name</string>
 
-    <!--    Report-->
+    <!--Report-->
 
     <string name="description">Description</string>
     <string name="adddescription">Enter the description</string>
